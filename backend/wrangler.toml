@@ -1,0 +1,13 @@
+name = "stellara-oracle"
+main = "worker.ts"
+compatibility_date = "2025-04-01"
+
+# KV namespace для rate limit'a.
+# Создай: `wrangler kv:namespace create RATE_LIMIT`
+# и подставь полученный id ниже.
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "REPLACE_WITH_KV_ID"
+
+# Секреты задаются отдельной командой, НЕ в этом файле:
+#   wrangler secret put ANTHROPIC_KEY
