@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E7CD3A82FA9F8FA00CED0CE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3A72FA9F8FA00CED0CE /* FirebaseMessaging */; };
+		3E7CD3B62FAA031800CED0CE /* Adapty in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3B52FAA031800CED0CE /* Adapty */; };
+		3E7CD3B82FAA031800CED0CE /* AdaptyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3B72FAA031800CED0CE /* AdaptyUI */; };
 		3ED511872FA92222002772F7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3ED511862FA92222002772F7 /* Lottie */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +30,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7CD3A82FA9F8FA00CED0CE /* FirebaseMessaging in Frameworks */,
+				3E7CD3B82FAA031800CED0CE /* AdaptyUI in Frameworks */,
 				3ED511872FA92222002772F7 /* Lottie in Frameworks */,
+				3E7CD3B62FAA031800CED0CE /* Adapty in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,9 @@
 			name = Stellara;
 			packageProductDependencies = (
 				3ED511862FA92222002772F7 /* Lottie */,
+				3E7CD3A72FA9F8FA00CED0CE /* FirebaseMessaging */,
+				3E7CD3B52FAA031800CED0CE /* Adapty */,
+				3E7CD3B72FAA031800CED0CE /* AdaptyUI */,
 			);
 			productName = Stellara;
 			productReference = 3E86D6D02FA91DB200AE81CE /* Stellara.app */;
@@ -104,6 +113,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				3ED511852FA92222002772F7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				3E7CD3A62FA9F8FA00CED0CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3E7CD3B42FAA031800CED0CE /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3E86D6D12FA91DB200AE81CE /* Products */;
@@ -359,6 +370,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3E7CD3A62FA9F8FA00CED0CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.1;
+			};
+		};
+		3E7CD3B42FAA031800CED0CE /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adaptyteam/AdaptySDK-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.15.7;
+			};
+		};
 		3ED511852FA92222002772F7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -370,6 +397,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3E7CD3A72FA9F8FA00CED0CE /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E7CD3A62FA9F8FA00CED0CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		3E7CD3B52FAA031800CED0CE /* Adapty */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E7CD3B42FAA031800CED0CE /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */;
+			productName = Adapty;
+		};
+		3E7CD3B72FAA031800CED0CE /* AdaptyUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E7CD3B42FAA031800CED0CE /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */;
+			productName = AdaptyUI;
+		};
 		3ED511862FA92222002772F7 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3ED511852FA92222002772F7 /* XCRemoteSwiftPackageReference "lottie-ios" */;

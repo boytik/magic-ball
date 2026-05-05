@@ -2,12 +2,25 @@ name = "stellara-oracle"
 main = "worker.ts"
 compatibility_date = "2025-04-01"
 
+# Какой LLM используем. Менять можно без правки клиента.
+#   "groq"      — бесплатный inference (по умолчанию).
+#   "anthropic" — нативный Anthropic API.
+[vars]
+LLM_PROVIDER = "groq"
+# Модель для Groq. Альтернативы:
+#   "llama-3.3-70b-versatile"   — лучшее качество (default)
+#   "llama-3.1-8b-instant"      — самая быстрая, но проще
+#   "mixtral-8x7b-32768"        — длинный контекст, мультиязык
+GROQ_MODEL = "llama-3.3-70b-versatile"
+
 # KV namespace для rate limit'a.
-# Создай: `wrangler kv:namespace create RATE_LIMIT`
+# Создай: `wrangler kv namespace create RATE_LIMIT`  (wrangler v4+)
+# или    `wrangler kv:namespace create RATE_LIMIT`   (wrangler v3 и старше)
 # и подставь полученный id ниже.
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "REPLACE_WITH_KV_ID"
+id = "0f24975566094a3cb8287002ffe6dfd5"
 
 # Секреты задаются отдельной командой, НЕ в этом файле:
-#   wrangler secret put ANTHROPIC_KEY
+#   wrangler secret put GROQ_API_KEY    ← обязателен при LLM_PROVIDER="groq"
+#   wrangler secret put ANTHROPIC_KEY   ← обязателен при LLM_PROVIDER="anthropic"

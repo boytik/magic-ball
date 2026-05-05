@@ -1,5 +1,8 @@
 import Foundation
 import Combine
+#if canImport(UIKit)
+import UIKit
+#endif
 
 /// Хранилище истории предсказаний. JSON-файл в Documents.
 /// На iOS 17+ можно при желании мигрировать на SwiftData.
@@ -29,6 +32,22 @@ final class PredictionStore: ObservableObject {
 
     func deleteAll() {
         predictions.removeAll()
+        persist()
+    }
+
+    func toggleFavorite(_ prediction: Prediction) {
+        guard let idx = predictions.firstIndex(where: { $0.id == prediction.id }) else { return }
+        predictions[idx].isFavorite.toggle()
+        persist()
+        #if canImport(UIKit)
+        UISelectionFeedbackGenerator().selectionChanged()
+        #endif
+    }
+
+    func setFavorite(_ prediction: Prediction, _ value: Bool) {
+        guard let idx = predictions.firstIndex(where: { $0.id == prediction.id }),
+              predictions[idx].isFavorite != value else { return }
+        predictions[idx].isFavorite = value
         persist()
     }
 

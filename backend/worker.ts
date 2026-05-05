@@ -1,18 +1,35 @@
-// Stellara backend — Cloudflare Worker proxy to Anthropic API.
+// Stellara backend — Cloudflare Worker, проксирующий запросы из iOS-приложения
+// в LLM-провайдера. По умолчанию используем Groq (бесплатный inference на Llama
+// 3.3 70B), но можно переключиться на Anthropic переменной окружения.
+//
 // Single endpoint: POST /predict
-// Auth: header X-Device-Id (UUID, generated once on iOS and stored in Keychain).
-// Rate limit: per device-id, per day, via KV. Default 30/day.
-// Secrets (set via `wrangler secret put ANTHROPIC_KEY`):
-//   - ANTHROPIC_KEY
-// Bindings (in wrangler.toml):
-//   - KV namespace `RATE_LIMIT`
+// Auth: header X-Device-Id (UUID, генерируется на iOS).
+// Rate limit: per device-id, per day, через KV. Default 3/day.
+// Меняешь — синхронно поправь `Stellara/Service/UsageTracker.swift`.
+//
+// ── Секреты (`wrangler secret put NAME`) ─────────────────────────────────
+//   GROQ_API_KEY        — обязательно при LLM_PROVIDER="groq"
+//   ANTHROPIC_KEY       — обязательно при LLM_PROVIDER="anthropic"
+//
+// ── Bindings (wrangler.toml) ─────────────────────────────────────────────
+//   [[kv_namespaces]] RATE_LIMIT
+//   [vars] LLM_PROVIDER = "groq" | "anthropic"   (default: "groq")
+//   [vars] GROQ_MODEL   = "llama-3.3-70b-versatile" (or другой groq-model)
 
 interface Env {
-  ANTHROPIC_KEY: string;
+  // Vars (необязательные — есть дефолты)
+  LLM_PROVIDER?: "groq" | "anthropic";
+  GROQ_MODEL?: string;
+
+  // Secrets (могут быть пустыми, проверяем на используемого провайдера)
+  GROQ_API_KEY?: string;
+  ANTHROPIC_KEY?: string;
+
+  // Bindings
   RATE_LIMIT: KVNamespace;
 }
 
-const DAILY_LIMIT = 30;
+const DAILY_LIMIT = 3;
 const MAX_QUESTION_LEN = 500;
 const MIN_QUESTION_LEN = 3;
 
@@ -72,7 +89,7 @@ export default {
       return cors(json({ error: "Bad device id" }, 400));
     }
 
-    let body: { question?: string; persona?: string };
+    let body: { question?: string; persona?: string; user?: unknown };
     try {
       body = await request.json();
     } catch {
@@ -98,31 +115,20 @@ export default {
       return cors(json({ error: "Daily limit reached", limit: DAILY_LIMIT }, 429));
     }
 
-    // ---- Call Anthropic ----
-    const system = `${personaPrompt}\n\n${COMMON_RULES}`;
-    const anthropicResp = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "x-api-key": env.ANTHROPIC_KEY,
-        "content-type": "application/json",
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 200,
-        system,
-        messages: [{ role: "user", content: question }],
-      }),
-    });
+    // ---- Build prompt ----
+    const userBlock = formatUserBlock(body.user);
+    const system = userBlock
+      ? `${personaPrompt}\n\nЗНАЕШЬ О СОБЕСЕДНИКЕ:\n${userBlock}\n\n${COMMON_RULES}`
+      : `${personaPrompt}\n\n${COMMON_RULES}`;
 
-    if (!anthropicResp.ok) {
-      const text = await anthropicResp.text();
-      console.error("Anthropic error", anthropicResp.status, text);
+    // ---- Call LLM ----
+    let answer: string;
+    try {
+      answer = await callLLM(env, system, question);
+    } catch (err) {
+      console.error("LLM error", err);
       return cors(json({ error: "Upstream error" }, 502));
     }
-
-    const data: any = await anthropicResp.json();
-    const answer: string = data?.content?.[0]?.text ?? "Звёзды молчат…";
 
     // ---- Increment rate limit (TTL = 25h to be safe) ----
     await env.RATE_LIMIT.put(rlKey, String(used + 1), { expirationTtl: 60 * 60 * 25 });
@@ -136,7 +142,99 @@ export default {
   },
 };
 
-// ---- helpers ----
+// ---- LLM provider abstraction ----------------------------------------
+
+async function callLLM(env: Env, system: string, userMessage: string): Promise<string> {
+  const provider = env.LLM_PROVIDER ?? "groq";
+
+  if (provider === "anthropic") {
+    return callAnthropic(env, system, userMessage);
+  }
+  return callGroq(env, system, userMessage);
+}
+
+async function callGroq(env: Env, system: string, userMessage: string): Promise<string> {
+  if (!env.GROQ_API_KEY) {
+    throw new Error("GROQ_API_KEY is not set. Use `wrangler secret put GROQ_API_KEY`.");
+  }
+
+  const model = env.GROQ_MODEL ?? "llama-3.3-70b-versatile";
+
+  const resp = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.GROQ_API_KEY}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      model,
+      max_tokens: 220,
+      temperature: 0.85,
+      messages: [
+        { role: "system", content: system },
+        { role: "user",   content: userMessage },
+      ],
+    }),
+  });
+
+  if (!resp.ok) {
+    const text = await resp.text();
+    throw new Error(`Groq ${resp.status}: ${text}`);
+  }
+
+  const data: any = await resp.json();
+  const answer: string = data?.choices?.[0]?.message?.content?.trim() ?? "";
+  return answer.length > 0 ? answer : "Звёзды молчат…";
+}
+
+async function callAnthropic(env: Env, system: string, userMessage: string): Promise<string> {
+  if (!env.ANTHROPIC_KEY) {
+    throw new Error("ANTHROPIC_KEY is not set. Use `wrangler secret put ANTHROPIC_KEY`.");
+  }
+
+  const resp = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "x-api-key": env.ANTHROPIC_KEY,
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 220,
+      temperature: 0.85,
+      system,
+      messages: [{ role: "user", content: userMessage }],
+    }),
+  });
+
+  if (!resp.ok) {
+    const text = await resp.text();
+    throw new Error(`Anthropic ${resp.status}: ${text}`);
+  }
+
+  const data: any = await resp.json();
+  const answer: string = data?.content?.[0]?.text?.trim() ?? "";
+  return answer.length > 0 ? answer : "Звёзды молчат…";
+}
+
+// ---- Helpers ---------------------------------------------------------
+
+/**
+ * Превращает объект профиля от клиента в человекочитаемый блок для LLM.
+ * iOS шлёт `user: { name, age, gender, countryCode }` (любое поле опциональное).
+ */
+function formatUserBlock(user: unknown): string {
+  if (!user || typeof user !== "object") return "";
+  const u = user as Record<string, unknown>;
+  const parts: string[] = [];
+  if (typeof u.name === "string" && u.name.length > 0) parts.push(`Имя: ${u.name}`);
+  if (typeof u.age === "number")                       parts.push(`Возраст: ${u.age}`);
+  if (typeof u.gender === "string" && u.gender)        parts.push(`Пол: ${u.gender}`);
+  if (typeof u.countryCode === "string" && u.countryCode) parts.push(`Страна: ${u.countryCode}`);
+  return parts.join("\n");
+}
+
 function json(obj: unknown, status = 200): Response {
   return new Response(JSON.stringify(obj), {
     status,

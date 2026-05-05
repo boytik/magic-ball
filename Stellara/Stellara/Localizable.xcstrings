@@ -1,6 +1,68 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "%@ %@ (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ (%3$@)"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "about.actions.rate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate the app"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noter l'app"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оценить приложение"
+          }
+        }
+      }
+    },
+    "about.actions.share" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share with friends"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partager avec des amis"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поделиться с друзьями"
+          }
+        }
+      }
+    },
     "about.disclaimer.body" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -70,6 +132,121 @@
         }
       }
     },
+    "about.notifications.go_to_settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open iOS Settings to enable"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvre les Réglages iOS pour activer"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть Настройки iOS, чтобы включить"
+          }
+        }
+      }
+    },
+    "about.notifications.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We'll ping when your 3 daily predictions reset"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On te ping quand tes 3 prédictions reviennent"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напомним, когда твои 3 предсказания обновятся"
+          }
+        }
+      }
+    },
+    "about.notifications.subtitle.ask" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to allow notifications"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuie pour autoriser les notifications"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажми, чтобы разрешить уведомления"
+          }
+        }
+      }
+    },
+    "about.notifications.subtitle.denied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications are turned off in iOS Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications désactivées dans Réglages iOS"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уведомления выключены в Настройках iOS"
+          }
+        }
+      }
+    },
+    "about.notifications.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily reminder"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rappel quotidien"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ежедневное напоминание"
+          }
+        }
+      }
+    },
     "about.privacy.body" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -116,6 +293,305 @@
         }
       }
     },
+    "about.profile.cta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set up your profile"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplir ton profil"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заполнить профиль"
+          }
+        }
+      }
+    },
+    "about.profile.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help the oracle give answers that feel personal."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aide l'oracle à donner des réponses plus personnelles."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы оракул давал более личные ответы."
+          }
+        }
+      }
+    },
+    "about.profile.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your profile"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ton profil"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Твой профиль"
+          }
+        }
+      }
+    },
+    "about.row.about" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About Stellara"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos de Stellara"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "О Stellara"
+          }
+        }
+      }
+    },
+    "about.row.disclaimer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disclaimer"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avertissement"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дисклеймер"
+          }
+        }
+      }
+    },
+    "about.row.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confidentialité"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приватность"
+          }
+        }
+      }
+    },
+    "about.section.info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informations"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информация"
+          }
+        }
+      }
+    },
+    "about.section.notifications" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уведомления"
+          }
+        }
+      }
+    },
+    "about.section.preferences" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferences"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Préférences"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Предпочтения"
+          }
+        }
+      }
+    },
+    "about.section.support" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support the app"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soutenir l'app"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поддержать приложение"
+          }
+        }
+      }
+    },
+    "about.sound.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mystic ambience while you ask"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ambiance mystique pendant tes questions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мистический фон, пока ты спрашиваешь"
+          }
+        }
+      }
+    },
+    "about.sound.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Background music"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Musique d'ambiance"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фоновая музыка"
+          }
+        }
+      }
+    },
+    "about.tagline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An AI oracle in your pocket"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un oracle IA dans ta poche"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI-оракул в твоём кармане"
+          }
+        }
+      }
+    },
     "about.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -135,6 +611,99 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stellara"
+          }
+        }
+      }
+    },
+    "about.version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Версия"
+          }
+        }
+      }
+    },
+    "alert.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not now"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus tard"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Позже"
+          }
+        }
+      }
+    },
+    "oracle.answer.tap_to_expand" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap to read full" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Toucher pour lire en entier" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Нажми, чтобы прочесть целиком" } }
+      }
+    },
+    "oracle.answer.your_question" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your question" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Ta question" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Твой вопрос" } }
+      }
+    },
+    "oracle.answer.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The oracle says" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "L'oracle dit" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Оракул отвечает" } }
+      }
+    },
+    "alert.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
@@ -234,6 +803,15 @@
         }
       }
     },
+    "history.calendar.next" : {
+
+    },
+    "history.calendar.prev" : {
+
+    },
+    "history.empty.day" : {
+
+    },
     "history.empty.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -280,6 +858,81 @@
         }
       }
     },
+    "history.mode.calendar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Calendar" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Calendrier" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Календарь" } }
+      }
+    },
+    "history.mode.list" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "All" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Tout" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Все" } }
+      }
+    },
+    "history.search.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search questions and answers" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rechercher dans les questions et réponses" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Поиск по вопросам и ответам" } }
+      }
+    },
+    "history.empty.search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Nothing matches your search." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rien ne correspond à ta recherche." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Ничего не нашлось по запросу." } }
+      }
+    },
+    "history.empty.favorites" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No favorites yet. Tap a star on any answer to save it here." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Pas encore de favoris. Touche l'étoile sur une réponse pour la sauver ici." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Пока нет избранного. Нажми звёздочку на ответе, чтобы сохранить его сюда." } }
+      }
+    },
+    "history.favorite" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Favorite" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Favori" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "В избранное" } }
+      }
+    },
+    "history.unfavorite" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unfavorite" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Retirer des favoris" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Убрать из избранного" } }
+      }
+    },
+    "history.delete.action" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Supprimer" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Удалить" } }
+      }
+    },
+    "history.delete.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete this prediction?" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Supprimer cette prédiction ?" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Удалить это предсказание?" } }
+      }
+    },
+    "history.show_all" : {
+
+    },
     "loading.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -322,6 +975,75 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Понятно, к шару →"
+          }
+        }
+      }
+    },
+    "onboarding.cta.continue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжить"
+          }
+        }
+      }
+    },
+    "onboarding.cta.skip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passer"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропустить"
+          }
+        }
+      }
+    },
+    "onboarding.disclaimer.accept" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I understand this is for entertainment"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je comprends, c'est pour le divertissement"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Понимаю, это для развлечения"
           }
         }
       }
@@ -372,6 +1094,121 @@
         }
       }
     },
+    "onboarding.notifications.allow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow notifications"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autoriser les notifications"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разрешить уведомления"
+          }
+        }
+      }
+    },
+    "onboarding.notifications.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When your 3 daily predictions reset, we'll send a single notification — never spam."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quand tes 3 prédictions reviennent, on envoie une seule notification — jamais de spam."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Когда твои 3 предсказания обновятся, пришлём одно уведомление — без спама."
+          }
+        }
+      }
+    },
+    "onboarding.notifications.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Want a gentle reminder?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un rappel doux ?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прислать тихое напоминание?"
+          }
+        }
+      }
+    },
+    "onboarding.profile.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optional. We use this only to make answers more personal."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionnel. On l'utilise pour personnaliser tes réponses."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не обязательно. Нужно только чтобы ответы были личнее."
+          }
+        }
+      }
+    },
+    "onboarding.profile.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tell the oracle who you are"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dis à l'oracle qui tu es"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расскажи оракулу о себе"
+          }
+        }
+      }
+    },
     "onboarding.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -391,6 +1228,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Звёзды на связи"
+          }
+        }
+      }
+    },
+    "onboarding.welcome.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An AI oracle in your pocket. Ask anything and meet the cosmos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un oracle IA dans ta poche. Pose une question, rencontre le cosmos."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI-оракул в кармане. Спроси что-нибудь — и встреться с космосом."
+          }
+        }
+      }
+    },
+    "oracle.cosmo.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A cosmic guide tuned to the bigger picture. Cosmo speaks with energy and a wide horizon, talking in terms of paths, signals and momentum. Best when you're standing at a fork in the road and want a wider view."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un guide cosmique branché sur la vue d'ensemble. Cosmo parle avec énergie et un large horizon, en termes de chemins, de signaux et d'élan. Idéal quand tu es à un carrefour et veux prendre du recul."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Космический проводник, настроенный на большую картину. Космо говорит с энергией и широким горизонтом — про пути, сигналы и импульс. Хорош, когда ты на развилке и хочется увидеть карту целиком."
           }
         }
       }
@@ -418,6 +1301,52 @@
         }
       }
     },
+    "oracle.cosmo.samples" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What's the next big chapter for me?\nIs this move worth it?\nWhich path has more momentum behind it?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quelle est ma prochaine grande étape ?\nCe changement vaut-il le coup ?\nQuel chemin a le plus d'élan ?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Какая моя следующая большая глава?\nСтоит ли этот переход того?\nУ какого пути больше импульса?"
+          }
+        }
+      }
+    },
+    "oracle.cosmo.specialties" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "purpose, direction, change, ambitions, big choices"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sens, direction, changement, ambitions, grands choix"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "смысл, направление, перемены, амбиции, большие выборы"
+          }
+        }
+      }
+    },
     "oracle.cosmo.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -437,6 +1366,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Астролог-хипстер"
+          }
+        }
+      }
+    },
+    "oracle.cosmo.tone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Energetic, expansive, futuristic"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Énergique, expansive, futuriste"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Энергично, масштабно, футуристично"
           }
         }
       }
@@ -488,6 +1440,29 @@
         }
       }
     },
+    "oracle.madame_lou.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A village fortune teller who's seen it all. Madame Lou is direct, sometimes cheeky, and skips the fancy talk. She's the friend who tells you what you need to hear about money, work, family and everyday life."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une voyante de village qui en a vu d'autres. Madame Lou est directe, parfois piquante, sans détours. C'est l'amie qui te dit ce qu'il faut entendre sur l'argent, le travail, la famille et le quotidien."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деревенская гадалка, которая повидала всё. Мадам Лу говорит прямо, иногда с подколом, без красивых слов. Это та подруга, что скажет правду про деньги, работу, семью и обычные будни."
+          }
+        }
+      }
+    },
     "oracle.madame_lou.name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -507,6 +1482,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Мадам Лу"
+          }
+        }
+      }
+    },
+    "oracle.madame_lou.samples" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Should I quit this job?\nWill we get along with my mother-in-law?\nIs this purchase actually a good idea?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devrais-je quitter ce travail ?\nVais-je m'entendre avec ma belle-mère ?\nCet achat est-il vraiment une bonne idée ?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стоит ли уйти с этой работы?\nПолучится ли поладить со свекровью?\nЭта покупка — правда хорошая идея?"
+          }
+        }
+      }
+    },
+    "oracle.madame_lou.specialties" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "money, work, family, decisions, daily life"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "argent, travail, famille, décisions, quotidien"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "деньги, работа, семья, решения, быт"
           }
         }
       }
@@ -534,6 +1555,75 @@
         }
       }
     },
+    "oracle.madame_lou.tone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direct, earthy, cheeky"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Directe, terre-à-terre, taquine"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прямо, по-земному, с лёгким подколом"
+          }
+        }
+      }
+    },
+    "oracle.mic.a11y" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voice input"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saisie vocale"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Голосовой ввод"
+          }
+        }
+      }
+    },
+    "oracle.zephyra.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A lunar mystic who speaks in soft, dreamy phrases. Zephyra listens to feelings between the lines and answers with metaphor — the moon, water, breath. Best when you want to look inward, not outward."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une mystique lunaire qui parle en phrases douces et rêveuses. Zephyra écoute les émotions entre les lignes et répond par métaphores — la lune, l'eau, le souffle. Idéale quand tu veux regarder en toi, pas autour de toi."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лунная мистика, говорит мягко и образно. Зефира слышит то, что между строк, и отвечает метафорами — про луну, воду, дыхание. Хороша, когда хочется заглянуть внутрь, а не вовне."
+          }
+        }
+      }
+    },
     "oracle.zephyra.name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -553,6 +1643,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зефира"
+          }
+        }
+      }
+    },
+    "oracle.zephyra.samples" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Why do I keep dreaming about the same person?\nIs my heart ready to let someone in?\nWhat is my intuition trying to tell me?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourquoi je rêve encore de la même personne ?\nMon cœur est-il prêt à laisser entrer quelqu'un ?\nQue veut me dire mon intuition ?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почему мне снится один и тот же человек?\nГотово ли моё сердце впустить кого-то?\nЧто пытается сказать мне интуиция?"
+          }
+        }
+      }
+    },
+    "oracle.zephyra.specialties" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "feelings, dreams, intuition, relationships, self-discovery"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "émotions, rêves, intuition, relations, introspection"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "чувства, сны, интуиция, отношения, самопознание"
           }
         }
       }
@@ -580,257 +1716,836 @@
         }
       }
     },
-    "about.tagline" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "An AI oracle in your pocket" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Un oracle IA dans ta poche" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "AI-оракул в твоём кармане" } }
-      }
-    },
-    "about.section.support" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Support the app" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Soutenir l'app" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Поддержать приложение" } }
-      }
-    },
-    "about.section.info" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Information" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Informations" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Информация" } }
-      }
-    },
-    "about.row.about" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "About Stellara" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "À propos de Stellara" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "О Stellara" } }
-      }
-    },
-    "about.row.disclaimer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Disclaimer" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Avertissement" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Дисклеймер" } }
-      }
-    },
-    "about.row.privacy" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Privacy" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Confidentialité" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Приватность" } }
-      }
-    },
-    "about.version" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Version" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Version" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Версия" } }
-      }
-    },
-    "about.actions.rate" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rate the app" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Noter l'app" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Оценить приложение" } }
-      }
-    },
-    "about.actions.share" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Share with friends" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Partager avec des amis" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Поделиться с друзьями" } }
-      }
-    },
-    "about.profile.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your profile" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Ton profil" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Твой профиль" } }
-      }
-    },
-    "about.profile.cta" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Set up your profile" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Remplir ton profil" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Заполнить профиль" } }
-      }
-    },
-    "about.profile.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Help the oracle give answers that feel personal." } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Aide l'oracle à donner des réponses plus personnelles." } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Чтобы оракул давал более личные ответы." } }
-      }
-    },
-    "share.app.message" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "I'm asking the cosmos with Stellara — try it!" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Je consulte le cosmos avec Stellara — essaie !" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Спрашиваю звёзды через Stellara — попробуй и ты!" } }
-      }
-    },
-    "profile.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Profile" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Profil" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Профиль" } }
-      }
-    },
-    "profile.intro" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "These details help the oracle craft answers that feel like they're meant for you. Information stays on your device and is only sent with your questions." } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Ces infos aident l'oracle à composer des réponses plus personnelles. Elles restent sur ton appareil et ne sont envoyées qu'avec tes questions." } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Эти данные помогают оракулу подбирать ответы под тебя. Они хранятся на устройстве и отправляются только вместе с твоими вопросами." } }
-      }
-    },
-    "profile.section.basic" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "About you" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "À propos de toi" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "О тебе" } }
-      }
-    },
-    "profile.section.location" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Location" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Localisation" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Местоположение" } }
-      }
-    },
-    "profile.name" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Name" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Prénom" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Имя" } }
-      }
-    },
-    "profile.name.placeholder" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your name" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Ton prénom" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Твоё имя" } }
-      }
-    },
-    "profile.birthdate" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Date of birth" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Date de naissance" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Дата рождения" } }
-      }
-    },
-    "profile.birthdate.toggle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Share date of birth" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Partager la date de naissance" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Указать дату рождения" } }
-      }
-    },
-    "profile.gender" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Gender" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Genre" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Пол" } }
-      }
-    },
-    "profile.gender.unspecified" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Prefer not to say" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Je préfère ne pas dire" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не указано" } }
-      }
-    },
-    "profile.gender.female" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Female" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Femme" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Женский" } }
-      }
-    },
-    "profile.gender.male" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Male" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Homme" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Мужской" } }
-      }
-    },
-    "profile.gender.other" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Other" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Autre" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Другой" } }
-      }
-    },
-    "profile.country" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Country" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Pays" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Страна" } }
-      }
-    },
-    "profile.country.unspecified" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Not specified" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Non spécifié" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не указано" } }
-      }
-    },
-    "profile.save" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Enregistrer" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Сохранить" } }
-      }
-    },
-    "oracle.mic.a11y" : {
+    "oracle.zephyra.tone" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Voice input"
+            "value" : "Soft, poetic, dreamy"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saisie vocale"
+            "value" : "Douce, poétique, rêveuse"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Голосовой ввод"
+            "value" : "Мягко, поэтично, мечтательно"
+          }
+        }
+      }
+    },
+    "personas.info.a11y" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About the oracles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos des oracles"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Об оракулах"
+          }
+        }
+      }
+    },
+    "personas.intro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Three different oracles, three ways to look at the same question. Pick the voice you want to hear today."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trois oracles, trois manières de regarder la même question. Choisis la voix que tu veux entendre aujourd'hui."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Три оракула — три взгляда на один и тот же вопрос. Выбери голос, который хочешь услышать сегодня."
+          }
+        }
+      }
+    },
+    "personas.section.samples" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try asking"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essaie de demander"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попробуй спросить"
+          }
+        }
+      }
+    },
+    "personas.section.specialties" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best for"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idéal pour"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лучше всего о"
+          }
+        }
+      }
+    },
+    "personas.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The three voices"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les trois voix"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Три голоса"
+          }
+        }
+      }
+    },
+    "profile.birthdate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date of birth"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date de naissance"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата рождения"
+          }
+        }
+      }
+    },
+    "profile.birthdate.toggle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share date of birth"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partager la date de naissance"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Указать дату рождения"
+          }
+        }
+      }
+    },
+    "profile.country" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Country"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pays"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Страна"
+          }
+        }
+      }
+    },
+    "profile.country.unspecified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not specified"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non spécifié"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не указано"
+          }
+        }
+      }
+    },
+    "profile.gender" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gender"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genre"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пол"
+          }
+        }
+      }
+    },
+    "profile.gender.female" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Female"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Femme"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Женский"
+          }
+        }
+      }
+    },
+    "profile.gender.male" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Male"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homme"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мужской"
+          }
+        }
+      }
+    },
+    "profile.gender.other" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Другой"
+          }
+        }
+      }
+    },
+    "profile.gender.unspecified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prefer not to say"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je préfère ne pas dire"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не указано"
+          }
+        }
+      }
+    },
+    "profile.intro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These details help the oracle craft answers that feel like they're meant for you. Information stays on your device and is only sent with your questions."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ces infos aident l'oracle à composer des réponses plus personnelles. Elles restent sur ton appareil et ne sont envoyées qu'avec tes questions."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эти данные помогают оракулу подбирать ответы под тебя. Они хранятся на устройстве и отправляются только вместе с твоими вопросами."
+          }
+        }
+      }
+    },
+    "profile.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prénom"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Имя"
+          }
+        }
+      }
+    },
+    "profile.name.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your name"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ton prénom"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Твоё имя"
+          }
+        }
+      }
+    },
+    "profile.save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
+          }
+        }
+      }
+    },
+    "profile.section.basic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About you"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos de toi"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "О тебе"
+          }
+        }
+      }
+    },
+    "profile.section.location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Location"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localisation"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Местоположение"
+          }
+        }
+      }
+    },
+    "profile.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Профиль"
+          }
+        }
+      }
+    },
+    "push.category.%@.subtitle" : {
+
+    },
+    "push.category.%@.title" : {
+
+    },
+    "push.category.cosmic_events.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full moons and other mystic dates"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pleines lunes et autres dates mystiques"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полнолуния и другие мистические даты"
+          }
+        }
+      }
+    },
+    "push.category.cosmic_events.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cosmic events"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Événements cosmiques"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Космические события"
+          }
+        }
+      }
+    },
+    "push.category.daily_reset.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When your 3 daily predictions are back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quand tes 3 prédictions sont de retour"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Когда твои 3 предсказания снова доступны"
+          }
+        }
+      }
+    },
+    "push.category.daily_reset.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily reset"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialisation quotidienne"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сброс лимита"
+          }
+        }
+      }
+    },
+    "push.category.weekly_forecast.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A short oracle's note every Monday morning"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une courte note d'oracle chaque lundi matin"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Короткое послание оракула каждое утро понедельника"
+          }
+        }
+      }
+    },
+    "push.category.weekly_forecast.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weekly whisper"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Murmure hebdomadaire"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Еженедельный шёпот"
+          }
+        }
+      }
+    },
+    "push.cosmic.full_moon.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tonight the moon amplifies what was hidden. Ask what you've been holding back."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette nuit, la lune amplifie le caché. Pose ce que tu retenais."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сегодня луна усиливает то, что было скрыто. Спроси то, что не решался."
+          }
+        }
+      }
+    },
+    "push.cosmic.full_moon.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full moon tonight 🌕"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pleine lune ce soir 🌕"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сегодня полнолуние 🌕"
+          }
+        }
+      }
+    },
+    "push.cta.enable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remind me tomorrow"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Me rappeler demain"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напомнить завтра"
+          }
+        }
+      }
+    },
+    "push.daily_reset.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your 3 daily predictions are back. The cosmos is patient."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tes 3 prédictions sont de retour. Le cosmos est patient."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Твои 3 предсказания снова доступны. Космос терпелив."
+          }
+        }
+      }
+    },
+    "push.daily_reset.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stellara is listening ✨"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stellara écoute ✨"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stellara снова слушает ✨"
+          }
+        }
+      }
+    },
+    "push.weekly.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The oracles have something for you this Monday. Care to listen?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les oracles ont quelque chose pour toi ce lundi. Tu écoutes ?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У оракулов есть что-то для тебя в этот понедельник. Послушаешь?"
+          }
+        }
+      }
+    },
+    "push.weekly.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your week's whisper"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Murmure de la semaine"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шёпот недели"
+          }
+        }
+      }
+    },
+    "share.app.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I'm asking the cosmos with Stellara — try it!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je consulte le cosmos avec Stellara — essaie !"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спрашиваю звёзды через Stellara — попробуй и ты!"
           }
         }
       }
@@ -949,6 +2664,77 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Шар"
+          }
+        }
+      }
+    },
+    "usage.limit_reached.subtitle" : {
+      "comment" : "%lld = daily limit (e.g. 3)",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your %lld predictions reset at midnight."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tes %lld prédictions seront réinitialisées à minuit."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Твои %lld предсказаний обнулятся в полночь."
+          }
+        }
+      }
+    },
+    "usage.limit_reached.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily limit reached"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limite quotidienne atteinte"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лимит на сегодня исчерпан"
+          }
+        }
+      }
+    },
+    "usage.remaining" : {
+      "comment" : "%1$lld = remaining today, %2$lld = daily limit",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$lld predictions left today"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld prédictions sur %2$lld restantes aujourd'hui"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Осталось %1$lld из %2$lld предсказаний на сегодня"
           }
         }
       }

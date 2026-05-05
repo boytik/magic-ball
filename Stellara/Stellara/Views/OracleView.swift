@@ -3,8 +3,11 @@ import SwiftUI
 struct OracleView: View {
     @EnvironmentObject private var store: PredictionStore
     @EnvironmentObject private var profileStore: UserProfileStore
+    @EnvironmentObject private var usage: UsageTracker
+    @EnvironmentObject private var notifications: NotificationManager
 
     @State private var selectedOracle: Oracle = Oracle.all[0]
+    @State private var showsLimitAlert: Bool = false
     @State private var question: String = ""
     @State private var answer: String = ""
     @State private var isLoading: Bool = false
@@ -15,6 +18,21 @@ struct OracleView: View {
 
     /// Текст до начала записи — чтобы при стопе/ресете корректно собирать всё в textField.
     @State private var textBeforeRecording: String = ""
+
+    /// Показывать ли шит «Три голоса».
+    @State private var showsPersonasInfo: Bool = false
+
+    /// Шит с полным ответом оракула. Открывается автоматически после успешного предсказания.
+    @State private var showsAnswerSheet: Bool = false
+
+    /// Последний заданный вопрос — нужно для отображения в шите.
+    @State private var lastDeliveredQuestion: String = ""
+
+    /// Оракул, который ответил на lastDelivered вопрос (может отличаться от выбранного).
+    @State private var lastDeliveredOracle: Oracle = Oracle.all[0]
+
+    /// Свежее предсказание для звезды-избранного в шите.
+    @State private var lastDeliveredPrediction: Prediction? = nil
 
     private var trimmedQuestion: String {
         question.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -39,6 +57,8 @@ struct OracleView: View {
 
                 Spacer(minLength: 0)
 
+                usageIndicator
+
                 inputArea
                     .padding(.bottom, 12)
             }
@@ -46,6 +66,13 @@ struct OracleView: View {
             // Плавная подстройка всего стека при росте текстового поля и появлении клавиатуры.
             .animation(.spring(response: 0.45, dampingFraction: 0.85), value: question)
             .animation(.spring(response: 0.45, dampingFraction: 0.85), value: inputFocused)
+            .animation(.spring(response: 0.45, dampingFraction: 0.85), value: usage.usedToday)
+        }
+        // Кнопка «о персонах» — приклеена к правому верхнему углу экрана.
+        .overlay(alignment: .topTrailing) {
+            personasInfoButton
+                .padding(.top, 6)
+                .padding(.trailing, 16)
         }
         .preferredColorScheme(.dark)
         // Подкладываем partial-распознавание прямо в текстовое поле.
@@ -61,38 +88,124 @@ struct OracleView: View {
         .onChange(of: speech.errorMessage) { msg in
             if let msg, !msg.isEmpty { errorText = msg }
         }
+        .sheet(isPresented: $showsPersonasInfo) {
+            PersonasInfoView()
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: $showsAnswerSheet) {
+            AnswerSheet(
+                oracle: lastDeliveredOracle,
+                question: lastDeliveredQuestion,
+                answer: answer,
+                prediction: lastDeliveredPrediction
+            )
+            .presentationDetents([.medium, .large])
+            .presentationDragIndicator(.visible)
+        }
+        .alert("usage.limit_reached.title", isPresented: $showsLimitAlert) {
+            // Если разрешение ещё не запрошено — предложим включить.
+            if notifications.authStatus == .notDetermined {
+                Button("push.cta.enable") {
+                    Task {
+                        let granted = await notifications.requestAuthorization()
+                        if granted {
+                            notifications.scheduleLimitResetNotification()
+                        }
+                    }
+                }
+                Button("alert.cancel", role: .cancel) {}
+            } else {
+                Button("alert.ok", role: .cancel) {}
+            }
+        } message: {
+            Text(String(format: NSLocalizedString("usage.limit_reached.subtitle",
+                                                  comment: ""),
+                        UsageTracker.dailyLimit))
+        }
     }
 
     // MARK: - Subviews
 
     private var personaPicker: some View {
-        HStack(spacing: 10) {
+        // Только pill + подзаголовок — оба центрированы по умолчанию VStack.
+        VStack(spacing: 6) {
+            personaMenu
+
+            Text(selectedOracle.localizedTitle)
+                .font(.caption)
+                .foregroundStyle(selectedOracle.accent.opacity(0.85))
+                .id(selectedOracle.id)
+                .transition(.asymmetric(
+                    insertion: .opacity.combined(with: .move(edge: .top)),
+                    removal: .opacity
+                ))
+        }
+        .frame(maxWidth: .infinity)
+        .animation(.spring(response: 0.35, dampingFraction: 0.85), value: selectedOracle.id)
+    }
+
+    /// Кнопка-вопрос для верхнего правого угла экрана.
+    private var personasInfoButton: some View {
+        Button {
+            showsPersonasInfo = true
+            #if canImport(UIKit)
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            #endif
+        } label: {
+            Image(systemName: "questionmark.circle.fill")
+                .font(.title3)
+                .symbolRenderingMode(.hierarchical)
+                .foregroundStyle(.white.opacity(0.65))
+                .frame(width: 38, height: 38)
+                .background(Circle().fill(Color.white.opacity(0.08)))
+                .overlay(Circle().stroke(.white.opacity(0.15), lineWidth: 1))
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text("personas.info.a11y"))
+    }
+
+    /// Один pill с текущей персоной + chevron.down. Тап — системное меню.
+    private var personaMenu: some View {
+        Menu {
             ForEach(Oracle.all) { oracle in
                 Button {
+                    guard oracle.id != selectedOracle.id else { return }
                     withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
                         selectedOracle = oracle
                     }
+                    #if canImport(UIKit)
+                    UISelectionFeedbackGenerator().selectionChanged()
+                    #endif
                 } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: oracle.symbol)
-                        Text(oracle.localizedName).font(.callout)
+                    if oracle.id == selectedOracle.id {
+                        Label(oracle.localizedName, systemImage: "checkmark")
+                    } else {
+                        Label(oracle.localizedName, systemImage: oracle.symbol)
                     }
-                    .padding(.horizontal, 12).padding(.vertical, 8)
-                    .background {
-                        Capsule()
-                            .fill(selectedOracle.id == oracle.id ? oracle.accent.opacity(0.35) : .white.opacity(0.06))
-                    }
-                    .overlay(
-                        Capsule().stroke(
-                            selectedOracle.id == oracle.id ? oracle.accent : .white.opacity(0.15),
-                            lineWidth: 1
-                        )
-                    )
-                    .foregroundStyle(.white)
                 }
-                .buttonStyle(.plain)
             }
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: selectedOracle.symbol)
+                    .foregroundStyle(.white)
+                Text(selectedOracle.localizedName)
+                    .font(.callout.weight(.medium))
+                    .foregroundStyle(.white)
+                Image(systemName: "chevron.down")
+                    .font(.caption2.weight(.bold))
+                    .foregroundStyle(.white.opacity(0.7))
+            }
+            .padding(.horizontal, 14).padding(.vertical, 9)
+            .background(
+                Capsule().fill(selectedOracle.accent.opacity(0.35))
+            )
+            .overlay(
+                Capsule().stroke(selectedOracle.accent, lineWidth: 1)
+            )
+            .contentShape(Capsule())
         }
+        .menuOrder(.fixed)
     }
 
     private var ball: some View {
@@ -145,11 +258,25 @@ struct OracleView: View {
                     .foregroundStyle(.orange.opacity(0.9))
                     .multilineTextAlignment(.center)
             } else if !answer.isEmpty {
-                Text(answer)
-                    .font(.title3)
-                    .foregroundStyle(.white)
-                    .multilineTextAlignment(.center)
-                    .transition(.opacity.combined(with: .move(edge: .bottom)))
+                Button {
+                    showsAnswerSheet = true
+                    #if canImport(UIKit)
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    #endif
+                } label: {
+                    VStack(spacing: 4) {
+                        Text(answer)
+                            .font(.title3)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(3)
+                        Text("oracle.answer.tap_to_expand")
+                            .font(.caption2)
+                            .foregroundStyle(.white.opacity(0.4))
+                    }
+                }
+                .buttonStyle(.plain)
+                .transition(.opacity.combined(with: .move(edge: .bottom)))
             } else {
                 Text(emptyHint)
                     .foregroundStyle(.white.opacity(0.5))
@@ -163,6 +290,52 @@ struct OracleView: View {
     private var emptyHint: String {
         String(format: NSLocalizedString("oracle.empty_hint", comment: ""),
                selectedOracle.localizedName)
+    }
+
+    // MARK: - Usage indicator
+
+    @ViewBuilder
+    private var usageIndicator: some View {
+        if usage.canAsk {
+            // Спокойный индикатор "осталось 2 из 3" в полупрозрачном виде.
+            HStack(spacing: 6) {
+                Image(systemName: "sparkle")
+                    .font(.caption2)
+                Text(String(format: NSLocalizedString("usage.remaining", comment: ""),
+                            usage.remainingToday, UsageTracker.dailyLimit))
+                    .font(.caption)
+            }
+            .foregroundStyle(.white.opacity(0.45))
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.bottom, 2)
+        } else {
+            // Лимит исчерпан — крупная подсказка.
+            VStack(spacing: 2) {
+                HStack(spacing: 6) {
+                    Image(systemName: "moon.zzz.fill")
+                        .font(.subheadline)
+                    Text("usage.limit_reached.title")
+                        .font(.subheadline.weight(.semibold))
+                }
+                Text(String(format: NSLocalizedString("usage.limit_reached.subtitle", comment: ""),
+                            UsageTracker.dailyLimit))
+                    .font(.caption)
+                    .foregroundStyle(.white.opacity(0.55))
+                    .multilineTextAlignment(.center)
+            }
+            .foregroundStyle(.white.opacity(0.85))
+            .padding(.vertical, 10).padding(.horizontal, 14)
+            .background(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(Color.white.opacity(0.06))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .stroke(.white.opacity(0.12), lineWidth: 1)
+            )
+            .frame(maxWidth: .infinity)
+            .transition(.opacity.combined(with: .scale(scale: 0.96)))
+        }
     }
 
     // MARK: - Input area (как в ChatGPT)
@@ -221,19 +394,29 @@ struct OracleView: View {
     }
 
     private var sendButton: some View {
-        Button {
+        let blocked = isLoading || trimmedQuestion.count < 3 || !usage.canAsk
+        return Button {
             Task { await ask() }
         } label: {
-            Image(systemName: isLoading ? "hourglass" : "arrow.up")
+            Image(systemName: isLoading ? "hourglass" : (usage.canAsk ? "arrow.up" : "lock.fill"))
                 .font(.system(size: 16, weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: 36, height: 36)
-                .background(selectedOracle.accent.gradient, in: Circle())
-                .shadow(color: selectedOracle.accent.opacity(0.5), radius: 6, y: 2)
+                .background(
+                    Group {
+                        if usage.canAsk {
+                            Circle().fill(selectedOracle.accent.gradient)
+                        } else {
+                            Circle().fill(Color.white.opacity(0.18))
+                        }
+                    }
+                )
+                .shadow(color: usage.canAsk ? selectedOracle.accent.opacity(0.5) : .clear,
+                        radius: 6, y: 2)
         }
         .buttonStyle(.plain)
-        .disabled(isLoading || trimmedQuestion.count < 3)
-        .opacity(trimmedQuestion.count < 3 ? 0.55 : 1.0)
+        .disabled(blocked)
+        .opacity(blocked ? 0.55 : 1.0)
     }
 
     private var micButton: some View {
@@ -280,10 +463,23 @@ struct OracleView: View {
     private func ask() async {
         let q = trimmedQuestion
         guard q.count >= 3, !isLoading else { return }
+
+        // Клиентский гард — не дёргаем сеть, если лимит уже исчерпан.
+        guard usage.canAsk else {
+            showsLimitAlert = true
+            #if canImport(UIKit)
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+            #endif
+            return
+        }
+
         if speech.isRecording { speech.stop() }
         inputFocused = false
         errorText = nil
         isLoading = true
+        // Optimistic-инкремент — кнопка сразу гаснет / индикатор обновляется.
+        usage.registerAttempt()
+        Analytics.track(.predictionRequested, ["persona": selectedOracle.id])
         defer { isLoading = false }
 
         do {
@@ -292,9 +488,32 @@ struct OracleView: View {
                 oracle: selectedOracle,
                 profile: profileStore.profile
             )
-            withAnimation(.easeOut(duration: 0.4)) { answer = resp.answer }
+            // Сервер сказал, сколько уже потрачено — синхронизируемся точно.
+            usage.syncFromServer(used: resp.usedToday)
 
-            store.add(Prediction(question: q, answer: resp.answer, oracleId: selectedOracle.id))
+            withAnimation(.easeOut(duration: 0.4)) { answer = resp.answer }
+            let saved = Prediction(question: q, answer: resp.answer, oracleId: selectedOracle.id)
+            store.add(saved)
+            lastDeliveredPrediction = saved
+            Analytics.track(.predictionDelivered, ["persona": selectedOracle.id,
+                                                    "used_today": resp.usedToday])
+
+            // Запомним контекст для шита (вопрос обнулится ниже, оракул может смениться).
+            lastDeliveredQuestion = q
+            lastDeliveredOracle   = selectedOracle
+            // Чуть оттянем открытие шита, чтобы успели проиграться:
+            // - анимация ответа на главном экране,
+            // - тактильная feedback "успех".
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                showsAnswerSheet = true
+            }
+
+            // Если только что потратил 3-е — планируем «сброс завтра» и поднимаем алерт.
+            if !usage.canAsk {
+                Analytics.track(.predictionLimitReached)
+                notifications.scheduleLimitResetNotification()
+                showsLimitAlert = true
+            }
 
             withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
                 question = ""
@@ -305,7 +524,25 @@ struct OracleView: View {
             #if canImport(UIKit)
             UINotificationFeedbackGenerator().notificationOccurred(.success)
             #endif
+        } catch let err as PredictionError {
+            switch err {
+            case .rateLimited:
+                // Бэк сказал «лимит» — фиксируем это локально.
+                usage.markLimitReached()
+                notifications.scheduleLimitResetNotification()
+                showsLimitAlert = true
+            case .badResponse, .server, .network:
+                // Сервер ничего не списал — откатываем.
+                usage.rollback()
+            }
+            Analytics.track(.predictionFailed, ["reason": String(describing: err)])
+            errorText = err.localizedDescription
+            #if canImport(UIKit)
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
+            #endif
         } catch {
+            usage.rollback()
+            Analytics.track(.predictionFailed, ["reason": "unknown"])
             errorText = error.localizedDescription
             #if canImport(UIKit)
             UINotificationFeedbackGenerator().notificationOccurred(.error)
@@ -318,4 +555,6 @@ struct OracleView: View {
     OracleView()
         .environmentObject(PredictionStore())
         .environmentObject(UserProfileStore())
+        .environmentObject(UsageTracker())
+        .environmentObject(NotificationManager())
 }

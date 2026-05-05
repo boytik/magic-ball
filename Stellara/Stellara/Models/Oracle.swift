@@ -17,6 +17,32 @@ struct Oracle: Identifiable, Hashable {
         NSLocalizedString("oracle.\(id).title", comment: "Oracle short subtitle")
     }
 
+    /// Подробное описание персоны для info-шита.
+    var localizedDescription: String {
+        NSLocalizedString("oracle.\(id).description", comment: "Oracle long description")
+    }
+
+    /// Описание тона речи (одна короткая фраза).
+    var localizedTone: String {
+        NSLocalizedString("oracle.\(id).tone", comment: "Oracle voice tone")
+    }
+
+    /// Список «специализаций» через запятую — превращается в чипы.
+    var localizedSpecialties: [String] {
+        let raw = NSLocalizedString("oracle.\(id).specialties", comment: "Comma-separated specialties")
+        return raw.split(separator: ",")
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty }
+    }
+
+    /// Примеры вопросов, по одному на строку (через `\n` в локализации).
+    var localizedSampleQuestions: [String] {
+        let raw = NSLocalizedString("oracle.\(id).samples", comment: "Sample questions, one per line")
+        return raw.split(whereSeparator: \.isNewline)
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty }
+    }
+
     nonisolated static let all: [Oracle] = [
         Oracle(
             id: "zephyra",

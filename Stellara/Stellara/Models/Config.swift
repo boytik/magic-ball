@@ -1,9 +1,8 @@
 import Foundation
 
 enum Config {
-    /// URL твоего Cloudflare Worker'a, заменить после деплоя.
-    /// Пример: "https://stellara-oracle.boytik.workers.dev"
-    nonisolated static let backendURL = URL(string: "https://stellara-oracle.REPLACE_ME.workers.dev")!
+    /// URL твоего Cloudflare Worker'a. Поменять при ребрендинге аккаунта/субдомена.
+    nonisolated static let backendURL = URL(string: "https://stellara-oracle.stellara-prod.workers.dev")!
 
     /// App Store ID. Заменить на реальный после публикации.
     /// Используется в ссылках Rate / Share.
