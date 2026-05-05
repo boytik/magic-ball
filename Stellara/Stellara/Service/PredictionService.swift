@@ -32,6 +32,20 @@ private struct ServerError: Decodable {
     let limit: Int?
 }
 
+/// Тело запроса в /predict. Профиль опционален — кладётся в `user`, если заполнен.
+private struct PredictRequest: Encodable {
+    let question: String
+    let persona: String
+    let user: UserPayload?
+
+    struct UserPayload: Encodable {
+        let name: String?
+        let age: Int?
+        let gender: String?
+        let countryCode: String?
+    }
+}
+
 actor PredictionService {
     nonisolated static let shared = PredictionService()
 
@@ -41,15 +55,30 @@ actor PredictionService {
         return URLSession(configuration: cfg)
     }()
 
-    func predict(question: String, oracle: Oracle) async throws -> PredictionResponse {
+    func predict(question: String,
+                 oracle: Oracle,
+                 profile: UserProfile? = nil) async throws -> PredictionResponse {
         var req = URLRequest(url: Config.backendURL.appendingPathComponent("predict"))
         req.httpMethod = "POST"
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         req.setValue(Config.deviceId, forHTTPHeaderField: "X-Device-Id")
-        req.httpBody = try JSONEncoder().encode([
-            "question": question,
-            "persona": oracle.id,
-        ])
+
+        let userPayload: PredictRequest.UserPayload? = {
+            guard let profile, profile.isFilled else { return nil }
+            let trimmedName = profile.name.trimmingCharacters(in: .whitespaces)
+            return PredictRequest.UserPayload(
+                name: trimmedName.isEmpty ? nil : trimmedName,
+                age: profile.age,
+                gender: profile.gender == .unspecified ? nil : profile.gender.rawValue,
+                countryCode: profile.countryCode.isEmpty ? nil : profile.countryCode
+            )
+        }()
+
+        req.httpBody = try JSONEncoder().encode(PredictRequest(
+            question: question,
+            persona: oracle.id,
+            user: userPayload
+        ))
 
         let data: Data
         let resp: URLResponse

@@ -10,7 +10,11 @@ struct LoadingView: View {
 
     var body: some View {
         ZStack {
-            StarryBackground()
+            StarryBackground(
+                density: 1.4,
+                sparkleIntensity: 1.8,
+                showsShootingStars: true
+            )
 
             VStack(spacing: 24) {
                 LottieView(animation: .named("catloading"))

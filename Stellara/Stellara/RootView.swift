@@ -39,35 +39,8 @@ private struct MainTabs: View {
     }
 }
 
-private struct AboutView: View {
-    var body: some View {
-        ZStack {
-            StarryBackground()
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("about.title").font(.largeTitle).bold().foregroundStyle(.white)
-                    Text("about.intro").foregroundStyle(.white.opacity(0.85))
-
-                    Divider().background(.white.opacity(0.2))
-
-                    Text("about.disclaimer.title").font(.headline).foregroundStyle(.white)
-                    Text("about.disclaimer.body").foregroundStyle(.white.opacity(0.7))
-
-                    Divider().background(.white.opacity(0.2))
-
-                    Text("about.privacy.title").font(.headline).foregroundStyle(.white)
-                    Text("about.privacy.body").foregroundStyle(.white.opacity(0.7))
-                }
-                .padding()
-            }
-        }
-        .preferredColorScheme(.dark)
-        .navigationTitle("about.title")
-        .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
 #Preview {
     RootView()
         .environmentObject(PredictionStore())
+        .environmentObject(UserProfileStore())
 }
