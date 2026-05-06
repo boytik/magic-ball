@@ -1,8 +1,5 @@
 import SwiftUI
 import StoreKit
-#if canImport(UIKit)
-import UIKit
-#endif
 
 /// Экран "О приложении" / настройки.
 ///
@@ -15,10 +12,8 @@ import UIKit
 struct AboutView: View {
     @EnvironmentObject private var profileStore: UserProfileStore
     @EnvironmentObject private var music: MusicPlayer
-    @EnvironmentObject private var notifications: NotificationManager
     @EnvironmentObject private var localization: LocalizationManager
     @Environment(\.requestReview) private var requestReview
-    @Environment(\.openURL) private var openURL
 
     @State private var activeSheet: InfoSheet?
 
@@ -41,8 +36,6 @@ struct AboutView: View {
                     preferencesCard
 
                     languageCard
-
-                    notificationsCard
 
                     supportCard
 
@@ -267,74 +260,6 @@ struct AboutView: View {
             }
             .padding(.horizontal, 14).padding(.vertical, 10)
         }
-    }
-
-    // MARK: - Notifications card (по категориям)
-
-    private var notificationsCard: some View {
-        SettingsCard(title: "about.section.notifications") {
-            // По одной строке на категорию.
-            ForEach(Array(NotificationManager.Category.allCases.enumerated()), id: \.element.id) { idx, category in
-                if idx > 0 {
-                    Divider().background(.white.opacity(0.08)).padding(.leading, 60)
-                }
-                categoryToggleRow(category)
-            }
-
-            // Если система запретила — отдельная строка «открыть Настройки».
-            if notifications.authStatus == .denied {
-                Divider().background(.white.opacity(0.08)).padding(.leading, 60)
-                Button {
-                    if let url = URL(string: UIApplication.openSettingsURLString) {
-                        openURL(url)
-                    }
-                } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .foregroundStyle(.orange)
-                        Text("about.notifications.go_to_settings")
-                            .font(.footnote)
-                            .foregroundStyle(.white.opacity(0.75))
-                        Spacer()
-                        Image(systemName: "arrow.up.forward")
-                            .font(.footnote.weight(.semibold))
-                            .foregroundStyle(.white.opacity(0.4))
-                    }
-                    .padding(.horizontal, 14).padding(.vertical, 10)
-                }
-                .buttonStyle(.plain)
-            }
-        }
-    }
-
-    private func categoryToggleRow(_ category: NotificationManager.Category) -> some View {
-        let isOn = notifications.isEnabled(category)
-        let muted = !isOn || (notifications.authStatus == .denied)
-        return toggleRow(
-            icon: category.icon,
-            tintColors: muted
-                ? [.white.opacity(0.18), .white.opacity(0.08)]
-                : category.tintColors,
-            title: category.titleKey,
-            subtitle: category.subtitleKey,
-            isOn: Binding(
-                get: { notifications.isEnabled(category) },
-                set: { newValue in
-                    if newValue && notifications.authStatus == .notDetermined {
-                        Task {
-                            _ = await notifications.requestAuthorization()
-                            notifications.setEnabled(newValue, for: category)
-                            Analytics.track(.dailyReminderToggled,
-                                            ["category": category.rawValue, "enabled": newValue])
-                        }
-                    } else {
-                        notifications.setEnabled(newValue, for: category)
-                        Analytics.track(.dailyReminderToggled,
-                                        ["category": category.rawValue, "enabled": newValue])
-                    }
-                }
-            )
-        )
     }
 
     /// Универсальная строка с тоглом + цветным бейджем.
@@ -667,6 +592,5 @@ private struct InfoSheetView: View {
     NavigationStack { AboutView() }
         .environmentObject(UserProfileStore())
         .environmentObject(MusicPlayer())
-        .environmentObject(NotificationManager())
         .environmentObject(LocalizationManager.shared)
 }
