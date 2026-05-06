@@ -33,9 +33,12 @@ private struct ServerError: Decodable {
 }
 
 /// Тело запроса в /predict. Профиль опционален — кладётся в `user`, если заполнен.
+/// `language` — двухбуквенный код языка интерфейса (en/fr/ru/it). Бэкенд должен
+/// отдавать ответ на этом языке.
 private struct PredictRequest: Encodable {
     let question: String
     let persona: String
+    let language: String
     let user: UserPayload?
 
     struct UserPayload: Encodable {
@@ -63,6 +66,13 @@ actor PredictionService {
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         req.setValue(Config.deviceId, forHTTPHeaderField: "X-Device-Id")
 
+        // Язык интерфейса, выбранный пользователем (en/fr/ru/it). Подаём
+        // двумя путями, чтобы прокатило с любым бэкендом:
+        //  • стандартный Accept-Language header,
+        //  • кастомное поле `language` внутри JSON-payload.
+        let language = await MainActor.run { LocalizationManager.shared.current.rawValue }
+        req.setValue(language, forHTTPHeaderField: "Accept-Language")
+
         let userPayload: PredictRequest.UserPayload? = {
             guard let profile, profile.isFilled else { return nil }
             let trimmedName = profile.name.trimmingCharacters(in: .whitespaces)
@@ -77,6 +87,7 @@ actor PredictionService {
         req.httpBody = try JSONEncoder().encode(PredictRequest(
             question: question,
             persona: oracle.id,
+            language: language,
             user: userPayload
         ))
 
