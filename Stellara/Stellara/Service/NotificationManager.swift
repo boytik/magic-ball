@@ -2,9 +2,10 @@ import Foundation
 import UserNotifications
 import Combine
 import SwiftUI
+import UIKit
 
-/// Локальные уведомления по категориям. Без серверного APNs — все пуши
-/// планируются на устройстве через `UNCalendarNotificationTrigger`.
+/// Локальные уведомления по категориям (расписание на устройстве).
+/// Удалённые пуши (FCM, топик `all`) настраиваются в `StellaraAppDelegate`.
 ///
 /// Категории:
 /// - `.dailyReset`     — «3 предсказания снова доступны» (ставится при достижении лимита).
@@ -104,6 +105,7 @@ final class NotificationManager: ObservableObject {
             // Если разрешение появилось — переобновим расписание включённых категорий.
             if settings.authorizationStatus == .authorized
                 || settings.authorizationStatus == .provisional {
+                UIApplication.shared.registerForRemoteNotifications()
                 self.rescheduleAllEnabled()
             }
         }
@@ -114,6 +116,11 @@ final class NotificationManager: ObservableObject {
         let center = UNUserNotificationCenter.current()
         do {
             let granted = try await center.requestAuthorization(options: [.alert, .sound, .badge])
+            if granted {
+                await MainActor.run {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
             await refreshStatus()
             return granted
         } catch {
@@ -129,6 +136,16 @@ final class NotificationManager: ObservableObject {
     func rescheduleAllEnabled() {
         for c in Category.allCases where isEnabled(c) {
             scheduleIfPossible(c)
+        }
+    }
+
+    /// Включить ВСЕ категории (`all`) и сразу запланировать уведомления.
+    /// Используется после успешного `requestAuthorization()` на пост-лоадинговом
+    /// экране — пользователь согласился, значит хотим присылать всё:
+    /// `dailyReset`, `cosmicEvents`, `weeklyForecast`.
+    func enableAllCategories() {
+        for c in Category.allCases {
+            setEnabled(true, for: c)
         }
     }
 

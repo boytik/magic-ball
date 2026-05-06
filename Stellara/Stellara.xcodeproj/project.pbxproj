@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E7CD3C22FA9F8FA00CED0CE /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3C12FA9F8FA00CED0CE /* FirebaseCore */; };
 		3E7CD3A82FA9F8FA00CED0CE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3A72FA9F8FA00CED0CE /* FirebaseMessaging */; };
 		3E7CD3B62FAA031800CED0CE /* Adapty in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3B52FAA031800CED0CE /* Adapty */; };
 		3E7CD3B82FAA031800CED0CE /* AdaptyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3B72FAA031800CED0CE /* AdaptyUI */; };
@@ -17,9 +18,22 @@
 		3E86D6D02FA91DB200AE81CE /* Stellara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stellara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3EF2B92F2FAB390400FE5C5E /* Exceptions for "Stellara" folder in "Stellara" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3E86D6CF2FA91DB200AE81CE /* Stellara */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3E86D6D22FA91DB200AE81CE /* Stellara */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3EF2B92F2FAB390400FE5C5E /* Exceptions for "Stellara" folder in "Stellara" target */,
+			);
 			path = Stellara;
 			sourceTree = "<group>";
 		};
@@ -30,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7CD3C22FA9F8FA00CED0CE /* FirebaseCore in Frameworks */,
 				3E7CD3A82FA9F8FA00CED0CE /* FirebaseMessaging in Frameworks */,
 				3E7CD3B82FAA031800CED0CE /* AdaptyUI in Frameworks */,
 				3ED511872FA92222002772F7 /* Lottie in Frameworks */,
@@ -76,6 +91,7 @@
 			);
 			name = Stellara;
 			packageProductDependencies = (
+				3E7CD3C12FA9F8FA00CED0CE /* FirebaseCore */,
 				3ED511862FA92222002772F7 /* Lottie */,
 				3E7CD3A72FA9F8FA00CED0CE /* FirebaseMessaging */,
 				3E7CD3B52FAA031800CED0CE /* Adapty */,
@@ -108,6 +124,7 @@
 				Base,
 				fr,
 				ru,
+				it,
 			);
 			mainGroup = 3E86D6C72FA91DB200AE81CE;
 			minimizedProjectReferenceProxies = 1;
@@ -273,11 +290,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Stellara/Stellara.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6WBSBWSNWN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Stellara/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access lets you ask the oracle by voice.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Speech recognition turns your voice into a question for the oracle.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -291,8 +311,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = asd.Stellara;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codybuen.magicBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -312,11 +333,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Stellara/Stellara.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6WBSBWSNWN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Stellara/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access lets you ask the oracle by voice.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Speech recognition turns your voice into a question for the oracle.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -330,8 +354,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = asd.Stellara;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codybuen.magicBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -397,6 +422,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3E7CD3C12FA9F8FA00CED0CE /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E7CD3A62FA9F8FA00CED0CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
 		3E7CD3A72FA9F8FA00CED0CE /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3E7CD3A62FA9F8FA00CED0CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

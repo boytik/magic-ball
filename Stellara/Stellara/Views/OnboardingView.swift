@@ -7,7 +7,10 @@ import SwiftUI
 ///   1. Welcome
 ///   2. Disclaimer (обязательное согласие) — нужен для App Review.
 ///   3. Profile (имя + дата рождения, можно пропустить)
-///   4. Notifications (разрешение на пуши)
+///
+/// Запрос разрешения на пуш-уведомления вынесен из онбординга и теперь
+/// показывается отдельным экраном `NotificationPermissionView`
+/// после `LoadingView` (см. `RootView`).
 ///
 /// По завершении ставит `stellara.didFinishOnboarding = true` через @AppStorage,
 /// после чего `RootView` показывает LoadingView и далее MainTabs.
@@ -15,7 +18,6 @@ struct OnboardingView: View {
     @AppStorage("stellara.didFinishOnboarding") private var didFinishOnboarding = false
 
     @EnvironmentObject private var profileStore: UserProfileStore
-    @EnvironmentObject private var notifications: NotificationManager
 
     @State private var step: Int = 0
 
@@ -29,7 +31,7 @@ struct OnboardingView: View {
                                                                value: -25,
                                                                to: Date()) ?? Date()
 
-    private let totalSteps = 4
+    private let totalSteps = 3
 
     var body: some View {
         ZStack {
@@ -46,8 +48,7 @@ struct OnboardingView: View {
                     switch step {
                     case 0: welcomeStep
                     case 1: disclaimerStep
-                    case 2: profileStep
-                    default: notificationsStep
+                    default: profileStep
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -244,37 +245,6 @@ struct OnboardingView: View {
         .padding(.horizontal, 16)
     }
 
-    // MARK: - Step 4: Notifications
-
-    private var notificationsStep: some View {
-        VStack(spacing: 16) {
-            Spacer()
-
-            ZStack {
-                Circle()
-                    .fill(Color.cyan.opacity(0.22))
-                    .frame(width: 110, height: 110)
-                Image(systemName: "bell.badge.fill")
-                    .font(.system(size: 46, weight: .light))
-                    .foregroundStyle(.cyan)
-            }
-
-            Text("onboarding.notifications.title")
-                .font(.title2.weight(.semibold))
-                .foregroundStyle(.white)
-                .multilineTextAlignment(.center)
-
-            Text("onboarding.notifications.body")
-                .font(.callout)
-                .foregroundStyle(.white.opacity(0.75))
-                .multilineTextAlignment(.center)
-                .lineSpacing(3)
-                .padding(.horizontal, 24)
-
-            Spacer()
-        }
-    }
-
     // MARK: - Bottom bar
 
     @ViewBuilder
@@ -289,7 +259,7 @@ struct OnboardingView: View {
                 Analytics.track(.onboardingDisclaimerAccepted)
                 advance()
             }
-        case 2:
+        default:
             HStack(spacing: 10) {
                 Button {
                     Analytics.track(.onboardingProfileSkipped)
@@ -311,31 +281,6 @@ struct OnboardingView: View {
                         "has_birthdate": hasBirthDate
                     ])
                     advance()
-                }
-            }
-        default:
-            HStack(spacing: 10) {
-                Button {
-                    Analytics.track(.onboardingNotificationsDeclined)
-                    finish()
-                } label: {
-                    Text("onboarding.cta.skip")
-                        .font(.callout.weight(.medium))
-                        .foregroundStyle(.white.opacity(0.7))
-                        .padding(.horizontal, 18).padding(.vertical, 14)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.white.opacity(0.06), in: Capsule())
-                }
-                .buttonStyle(.plain)
-
-                primaryButton(title: "onboarding.notifications.allow", enabled: true) {
-                    Task {
-                        let granted = await notifications.requestAuthorization()
-                        Analytics.track(granted
-                            ? .onboardingNotificationsAllowed
-                            : .onboardingNotificationsDeclined)
-                        finish()
-                    }
                 }
             }
         }

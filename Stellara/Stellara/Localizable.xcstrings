@@ -4,11 +4,27 @@
     "" : {
 
     },
+    "%@  %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@  %2$@"
+          }
+        }
+      }
+    },
     "%@ %@ (%@)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "%1$@ %2$@ (%3$@)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "%1$@ %2$@ (%3$@)"
           }
         }
@@ -30,6 +46,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Noter l'app"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valuta l'app"
           }
         },
         "ru" : {
@@ -55,6 +77,12 @@
             "value" : "Partager avec des amis"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Condividi con gli amici"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -76,6 +104,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les prédictions de Stellara sont un divertissement généré par IA. Elles ne remplacent pas les conseils médicaux, juridiques ou financiers d'un professionnel. Si tu traverses un moment difficile, contacte un professionnel ou un proche."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le predizioni di Stellara sono intrattenimento generato dall'IA. Non sostituiscono consulenze mediche, legali o finanziarie. Se stai attraversando un momento difficile, rivolgiti a un professionista o a una persona di fiducia."
           }
         },
         "ru" : {
@@ -101,6 +135,12 @@
             "value" : "Pour le divertissement uniquement."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo per intrattenimento."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -124,10 +164,74 @@
             "value" : "Un oracle IA de poche. Pose une question et reçois une réponse mystique de l'un des trois personnages."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un oracolo IA da tasca. Fai una domanda e ricevi una risposta mistica da uno dei tre personaggi."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "AI-оракул в кармане. Спроси что-нибудь и получи мистический ответ от одного из трёх персонажей."
+          }
+        }
+      }
+    },
+    "about.language.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pick the voice of the app"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisis la voix de l'app"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli la voce dell'app"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбери голос приложения"
+          }
+        }
+      }
+    },
+    "about.language.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interface language"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Langue de l'interface"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lingua dell'interfaccia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Язык интерфейса"
           }
         }
       }
@@ -147,102 +251,16 @@
             "value" : "Ouvre les Réglages iOS pour activer"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apri Impostazioni iOS per attivare"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открыть Настройки iOS, чтобы включить"
-          }
-        }
-      }
-    },
-    "about.notifications.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We'll ping when your 3 daily predictions reset"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "On te ping quand tes 3 prédictions reviennent"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Напомним, когда твои 3 предсказания обновятся"
-          }
-        }
-      }
-    },
-    "about.notifications.subtitle.ask" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap to allow notifications"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Appuie pour autoriser les notifications"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нажми, чтобы разрешить уведомления"
-          }
-        }
-      }
-    },
-    "about.notifications.subtitle.denied" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notifications are turned off in iOS Settings"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notifications désactivées dans Réglages iOS"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Уведомления выключены в Настройках iOS"
-          }
-        }
-      }
-    },
-    "about.notifications.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Daily reminder"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rappel quotidien"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ежедневное напоминание"
           }
         }
       }
@@ -260,6 +278,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "L'historique de tes questions reste uniquement sur cet appareil. Nous ne le lions pas à ton identité."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La cronologia delle tue domande è salvata solo su questo dispositivo. Non la colleghiamo alla tua identità."
           }
         },
         "ru" : {
@@ -285,6 +309,12 @@
             "value" : "Confidentialité"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -306,6 +336,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Remplir ton profil"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configura il tuo profilo"
           }
         },
         "ru" : {
@@ -331,6 +367,12 @@
             "value" : "Aide l'oracle à donner des réponses plus personnelles."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aiuta l'oracolo a darti risposte più personali."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -352,6 +394,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ton profil"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo profilo"
           }
         },
         "ru" : {
@@ -377,6 +425,12 @@
             "value" : "À propos de Stellara"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Su Stellara"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -398,6 +452,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avertissement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avvertenza"
           }
         },
         "ru" : {
@@ -423,6 +483,12 @@
             "value" : "Confidentialité"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -446,10 +512,45 @@
             "value" : "Informations"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informazioni"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Информация"
+          }
+        }
+      }
+    },
+    "about.section.language" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Langue"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lingua"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Язык"
           }
         }
       }
@@ -467,6 +568,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifiche"
           }
         },
         "ru" : {
@@ -492,6 +599,12 @@
             "value" : "Préférences"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferenze"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -513,6 +626,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Soutenir l'app"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supporta l'app"
           }
         },
         "ru" : {
@@ -538,6 +657,12 @@
             "value" : "Ambiance mystique pendant tes questions"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atmosfera mistica mentre fai la tua domanda"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -559,6 +684,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Musique d'ambiance"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Musica di sottofondo"
           }
         },
         "ru" : {
@@ -584,6 +715,12 @@
             "value" : "Un oracle IA dans ta poche"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un oracolo IA in tasca"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -602,6 +739,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stellara"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stellara"
@@ -630,6 +773,12 @@
             "value" : "Version"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versione"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -653,36 +802,18 @@
             "value" : "Plus tard"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non ora"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Позже"
           }
         }
-      }
-    },
-    "oracle.answer.tap_to_expand" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap to read full" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Toucher pour lire en entier" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Нажми, чтобы прочесть целиком" } }
-      }
-    },
-    "oracle.answer.your_question" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your question" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Ta question" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Твой вопрос" } }
-      }
-    },
-    "oracle.answer.label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The oracle says" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "L'oracle dit" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Оракул отвечает" } }
       }
     },
     "alert.ok" : {
@@ -695,6 +826,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -723,6 +860,12 @@
             "value" : "Les étoiles marmonnent. Réessaie."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le stelle borbottano. Riprova."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -745,6 +888,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contact avec le cosmos perdu : %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contatto perso con il cosmo: %@"
           }
         },
         "ru" : {
@@ -771,6 +920,12 @@
             "value" : "Limite quotidienne atteinte : %lld prédictions. Reviens demain."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limite giornaliero raggiunto: %lld predizioni. Torna domani."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -795,6 +950,12 @@
             "value" : "Le serveur des esprits est mécontent : %@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il server degli spiriti è scontento: %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -804,13 +965,207 @@
       }
     },
     "history.calendar.next" : {
-
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next month"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mois suivant"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mese successivo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Следующий месяц"
+          }
+        }
+      }
     },
     "history.calendar.prev" : {
-
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous month"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mois précédent"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mese precedente"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Предыдущий месяц"
+          }
+        }
+      }
+    },
+    "history.delete.action" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить"
+          }
+        }
+      }
+    },
+    "history.delete.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete this prediction?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer cette prédiction ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminare questa predizione?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить это предсказание?"
+          }
+        }
+      }
     },
     "history.empty.day" : {
-
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No predictions on this day yet."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas encore de prédictions ce jour."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna predizione in questo giorno."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В этот день ещё нет предсказаний."
+          }
+        }
+      }
+    },
+    "history.empty.favorites" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No favorites yet. Tap a star on any answer to save it here."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas encore de favoris. Touche l'étoile sur une réponse pour la sauver ici."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun preferito ancora. Tocca la stella su una risposta per salvarla qui."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пока нет избранного. Нажми звёздочку на ответе, чтобы сохранить его сюда."
+          }
+        }
+      }
+    },
+    "history.empty.search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nothing matches your search."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rien ne correspond à ta recherche."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun risultato per la tua ricerca."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ничего не нашлось по запросу."
+          }
+        }
+      }
     },
     "history.empty.subtitle" : {
       "extractionState" : "manual",
@@ -825,6 +1180,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pose une question à la sphère — ta première prédiction apparaîtra ici."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiedi alla sfera — la tua prima predizione apparirà qui."
           }
         },
         "ru" : {
@@ -850,6 +1211,12 @@
             "value" : "Aucune prédiction"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ancora nessuna predizione"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -858,80 +1225,179 @@
         }
       }
     },
+    "history.favorite" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favori"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferito"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В избранное"
+          }
+        }
+      }
+    },
     "history.mode.calendar" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Calendar" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Calendrier" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Календарь" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calendar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calendrier"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calendario"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Календарь"
+          }
+        }
       }
     },
     "history.mode.list" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "All" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Tout" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Все" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutti"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Все"
+          }
+        }
       }
     },
     "history.search.placeholder" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search questions and answers" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rechercher dans les questions et réponses" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Поиск по вопросам и ответам" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search questions and answers"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher dans les questions et réponses"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca tra domande e risposte"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск по вопросам и ответам"
+          }
+        }
       }
     },
-    "history.empty.search" : {
+    "history.show_all" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Nothing matches your search." } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rien ne correspond à ta recherche." } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Ничего не нашлось по запросу." } }
-      }
-    },
-    "history.empty.favorites" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No favorites yet. Tap a star on any answer to save it here." } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Pas encore de favoris. Touche l'étoile sur une réponse pour la sauver ici." } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Пока нет избранного. Нажми звёздочку на ответе, чтобы сохранить его сюда." } }
-      }
-    },
-    "history.favorite" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Favorite" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Favori" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "В избранное" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show all"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout afficher"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra tutto"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать всё"
+          }
+        }
       }
     },
     "history.unfavorite" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unfavorite" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Retirer des favoris" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Убрать из избранного" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unfavorite"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retirer des favoris"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rimuovi dai preferiti"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Убрать из избранного"
+          }
+        }
       }
-    },
-    "history.delete.action" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Supprimer" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Удалить" } }
-      }
-    },
-    "history.delete.confirm" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete this prediction?" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Supprimer cette prédiction ?" } },
-        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Удалить это предсказание?" } }
-      }
-    },
-    "history.show_all" : {
-
     },
     "loading.title" : {
       "extractionState" : "manual",
@@ -948,33 +1414,16 @@
             "value" : "Les étoiles se rassemblent…"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le stelle si stanno radunando…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Звёзды собираются…"
-          }
-        }
-      }
-    },
-    "onboarding.cta" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Got it, to the orb →"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compris, à la sphère →"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Понятно, к шару →"
           }
         }
       }
@@ -992,6 +1441,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continua"
           }
         },
         "ru" : {
@@ -1017,6 +1472,12 @@
             "value" : "Passer"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salta"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1038,6 +1499,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Je comprends, c'est pour le divertissement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capisco che è solo per intrattenimento"
           }
         },
         "ru" : {
@@ -1063,6 +1530,12 @@
             "value" : "Stellara n'est qu'un divertissement. Les prédictions ne sont pas des conseils médicaux, juridiques ou financiers et ne remplacent pas l'avis d'un professionnel."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stellara è solo per intrattenimento. Le predizioni non sono consigli medici, legali o finanziari e non sostituiscono il parere di un professionista."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1084,6 +1557,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pour le plaisir, pas vraiment de l'astrologie"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per gioco, non vera astrologia"
           }
         },
         "ru" : {
@@ -1109,6 +1588,12 @@
             "value" : "Autoriser les notifications"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consenti notifiche"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1130,6 +1615,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quand tes 3 prédictions reviennent, on envoie une seule notification — jamais de spam."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando le tue 3 predizioni giornaliere si rinnovano, ti inviamo una sola notifica — niente spam."
           }
         },
         "ru" : {
@@ -1155,6 +1646,12 @@
             "value" : "Un rappel doux ?"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuoi un piccolo promemoria?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1176,6 +1673,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Optionnel. On l'utilise pour personnaliser tes réponses."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Facoltativo. Lo usiamo solo per rendere le risposte più personali."
           }
         },
         "ru" : {
@@ -1201,33 +1704,16 @@
             "value" : "Dis à l'oracle qui tu es"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dì all'oracolo chi sei"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Расскажи оракулу о себе"
-          }
-        }
-      }
-    },
-    "onboarding.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The stars are listening"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Les étoiles à l'écoute"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Звёзды на связи"
           }
         }
       }
@@ -1247,10 +1733,103 @@
             "value" : "Un oracle IA dans ta poche. Pose une question, rencontre le cosmos."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un oracolo IA in tasca. Fai una domanda e incontra il cosmo."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "AI-оракул в кармане. Спроси что-нибудь — и встреться с космосом."
+          }
+        }
+      }
+    },
+    "oracle.answer.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The oracle says"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'oracle dit"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'oracolo dice"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оракул отвечает"
+          }
+        }
+      }
+    },
+    "oracle.answer.tap_to_expand" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to read full"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toucher pour lire en entier"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tocca per leggere tutto"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажми, чтобы прочесть целиком"
+          }
+        }
+      }
+    },
+    "oracle.answer.your_question" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your question"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ta question"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tua domanda"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Твой вопрос"
           }
         }
       }
@@ -1268,6 +1847,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un guide cosmique branché sur la vue d'ensemble. Cosmo parle avec énergie et un large horizon, en termes de chemins, de signaux et d'élan. Idéal quand tu es à un carrefour et veux prendre du recul."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una guida cosmica sintonizzata sul quadro più ampio. Cosmo parla con energia e ampi orizzonti, in termini di percorsi, segnali e slancio. Perfetto quando sei a un bivio e vuoi una visione d'insieme."
           }
         },
         "ru" : {
@@ -1288,6 +1873,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cosmo"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cosmo"
@@ -1316,6 +1907,12 @@
             "value" : "Quelle est ma prochaine grande étape ?\nCe changement vaut-il le coup ?\nQuel chemin a le plus d'élan ?"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qual è il prossimo grande capitolo per me?\nQuesta scelta vale la pena?\nQuale strada ha più slancio dietro?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1337,6 +1934,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "sens, direction, changement, ambitions, grands choix"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "scopo, direzione, cambiamento, ambizioni, scelte importanti"
           }
         },
         "ru" : {
@@ -1362,6 +1965,12 @@
             "value" : "Astrologue hipster"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Astrologo Hipster"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1383,6 +1992,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Énergique, expansive, futuriste"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Energico, espansivo, futuristico"
           }
         },
         "ru" : {
@@ -1409,6 +2024,12 @@
             "value" : "Pose une question à %@…"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiedi qualcosa a %@…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1430,6 +2051,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ta question…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tua domanda…"
           }
         },
         "ru" : {
@@ -1455,6 +2082,12 @@
             "value" : "Une voyante de village qui en a vu d'autres. Madame Lou est directe, parfois piquante, sans détours. C'est l'amie qui te dit ce qu'il faut entendre sur l'argent, le travail, la famille et le quotidien."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una cartomante di paese che le ha viste tutte. Madame Lou è diretta, a volte sfacciata, e salta i discorsi forbiti. È l'amica che ti dice quello che ti serve sapere su soldi, lavoro, famiglia e quotidianità."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1473,6 +2106,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Madame Lou"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Madame Lou"
@@ -1501,6 +2140,12 @@
             "value" : "Devrais-je quitter ce travail ?\nVais-je m'entendre avec ma belle-mère ?\nCet achat est-il vraiment une bonne idée ?"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dovrei lasciare questo lavoro?\nAndremo d'accordo con la suocera?\nÈ davvero una buona idea quest'acquisto?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1522,6 +2167,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "argent, travail, famille, décisions, quotidien"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "soldi, lavoro, famiglia, decisioni, vita quotidiana"
           }
         },
         "ru" : {
@@ -1547,6 +2198,12 @@
             "value" : "Voyante de campagne"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cartomante di Paese"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1568,6 +2225,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Directe, terre-à-terre, taquine"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diretta, terrena, sfacciata"
           }
         },
         "ru" : {
@@ -1593,6 +2256,12 @@
             "value" : "Saisie vocale"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Input vocale"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1614,6 +2283,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une mystique lunaire qui parle en phrases douces et rêveuses. Zephyra écoute les émotions entre les lignes et répond par métaphores — la lune, l'eau, le souffle. Idéale quand tu veux regarder en toi, pas autour de toi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una mistica lunare che parla con frasi morbide e oniriche. Zephyra ascolta i sentimenti tra le righe e risponde con metafore — la luna, l'acqua, il respiro. Perfetta quando vuoi guardare dentro, non fuori."
           }
         },
         "ru" : {
@@ -1639,6 +2314,12 @@
             "value" : "Zéphira"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zephyra"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1660,6 +2341,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pourquoi je rêve encore de la même personne ?\nMon cœur est-il prêt à laisser entrer quelqu'un ?\nQue veut me dire mon intuition ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perché continuo a sognare la stessa persona?\nIl mio cuore è pronto a lasciare entrare qualcuno?\nCosa cerca di dirmi la mia intuizione?"
           }
         },
         "ru" : {
@@ -1685,6 +2372,12 @@
             "value" : "émotions, rêves, intuition, relations, introspection"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sentimenti, sogni, intuizione, relazioni, scoperta di sé"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1706,6 +2399,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oracle ancien"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oracolo Antico"
           }
         },
         "ru" : {
@@ -1731,6 +2430,12 @@
             "value" : "Douce, poétique, rêveuse"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Morbida, poetica, sognante"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1752,6 +2457,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À propos des oracles"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sugli oracoli"
           }
         },
         "ru" : {
@@ -1777,6 +2488,12 @@
             "value" : "Trois oracles, trois manières de regarder la même question. Choisis la voix que tu veux entendre aujourd'hui."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tre oracoli diversi, tre modi di guardare la stessa domanda. Scegli la voce che vuoi ascoltare oggi."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1798,6 +2515,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Essaie de demander"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova a chiedere"
           }
         },
         "ru" : {
@@ -1823,6 +2546,12 @@
             "value" : "Idéal pour"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ideale per"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1844,6 +2573,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les trois voix"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le tre voci"
           }
         },
         "ru" : {
@@ -1869,6 +2604,12 @@
             "value" : "Date de naissance"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data di nascita"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1890,6 +2631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Partager la date de naissance"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Condividi la data di nascita"
           }
         },
         "ru" : {
@@ -1915,6 +2662,12 @@
             "value" : "Pays"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paese"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1936,6 +2689,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Non spécifié"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non specificato"
           }
         },
         "ru" : {
@@ -1961,6 +2720,12 @@
             "value" : "Genre"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genere"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1982,6 +2747,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Femme"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Femminile"
           }
         },
         "ru" : {
@@ -2007,6 +2778,12 @@
             "value" : "Homme"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maschile"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2028,6 +2805,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autre"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altro"
           }
         },
         "ru" : {
@@ -2053,6 +2836,12 @@
             "value" : "Je préfère ne pas dire"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferisco non dirlo"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2076,33 +2865,16 @@
             "value" : "Ces infos aident l'oracle à composer des réponses plus personnelles. Elles restent sur ton appareil et ne sont envoyées qu'avec tes questions."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questi dettagli aiutano l'oracolo a creare risposte che sembrino fatte per te. Le informazioni restano sul dispositivo e vengono inviate solo con le tue domande."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Эти данные помогают оракулу подбирать ответы под тебя. Они хранятся на устройстве и отправляются только вместе с твоими вопросами."
-          }
-        }
-      }
-    },
-    "profile.name" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Name"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prénom"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Имя"
           }
         }
       }
@@ -2120,6 +2892,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ton prénom"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo nome"
           }
         },
         "ru" : {
@@ -2145,6 +2923,12 @@
             "value" : "Enregistrer"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2166,6 +2950,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À propos de toi"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Su di te"
           }
         },
         "ru" : {
@@ -2191,6 +2981,12 @@
             "value" : "Localisation"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luogo"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2212,6 +3008,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profil"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profilo"
           }
         },
         "ru" : {
@@ -2243,6 +3045,12 @@
             "value" : "Pleines lunes et autres dates mystiques"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lune piene e altre date mistiche"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2264,6 +3072,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Événements cosmiques"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eventi cosmici"
           }
         },
         "ru" : {
@@ -2289,6 +3103,12 @@
             "value" : "Quand tes 3 prédictions sont de retour"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando le tue 3 predizioni giornaliere tornano"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2310,6 +3130,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialisation quotidienne"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset giornaliero"
           }
         },
         "ru" : {
@@ -2335,6 +3161,12 @@
             "value" : "Une courte note d'oracle chaque lundi matin"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una breve nota dell'oracolo ogni lunedì mattina"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2356,6 +3188,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Murmure hebdomadaire"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sussurro settimanale"
           }
         },
         "ru" : {
@@ -2381,6 +3219,12 @@
             "value" : "Cette nuit, la lune amplifie le caché. Pose ce que tu retenais."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stanotte la luna amplifica ciò che era nascosto. Chiedi quello che hai trattenuto."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2402,6 +3246,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pleine lune ce soir 🌕"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luna piena stanotte 🌕"
           }
         },
         "ru" : {
@@ -2427,6 +3277,12 @@
             "value" : "Me rappeler demain"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricordamelo domani"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2448,6 +3304,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tes 3 prédictions sont de retour. Le cosmos est patient."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le tue 3 predizioni giornaliere sono tornate. Il cosmo è paziente."
           }
         },
         "ru" : {
@@ -2473,6 +3335,12 @@
             "value" : "Stellara écoute ✨"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stellara è in ascolto ✨"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2494,6 +3362,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les oracles ont quelque chose pour toi ce lundi. Tu écoutes ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gli oracoli hanno qualcosa per te questo lunedì. Vuoi ascoltare?"
           }
         },
         "ru" : {
@@ -2519,6 +3393,12 @@
             "value" : "Murmure de la semaine"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il sussurro della tua settimana"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2540,6 +3420,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Je consulte le cosmos avec Stellara — essaie !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sto interrogando il cosmo con Stellara — provala!"
           }
         },
         "ru" : {
@@ -2565,6 +3451,12 @@
             "value" : "L'accès au micro ou à la reconnaissance vocale a été refusé. Tu peux l'activer dans les Réglages."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'accesso al microfono o al riconoscimento vocale è stato negato. Puoi attivarlo in Impostazioni."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2586,6 +3478,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La reconnaissance vocale n'est pas disponible pour le moment."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il riconoscimento vocale non è disponibile al momento."
           }
         },
         "ru" : {
@@ -2614,6 +3512,12 @@
             "value" : "À propos"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2637,6 +3541,12 @@
             "value" : "Historique"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cronologia"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2658,6 +3568,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sphère"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sfera"
           }
         },
         "ru" : {
@@ -2684,6 +3600,12 @@
             "value" : "Tes %lld prédictions seront réinitialisées à minuit."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le tue %lld predizioni si rinnovano a mezzanotte."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2705,6 +3627,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Limite quotidienne atteinte"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limite giornaliero raggiunto"
           }
         },
         "ru" : {
@@ -2729,6 +3657,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld prédictions sur %2$lld restantes aujourd'hui"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld di %2$lld predizioni rimaste oggi"
           }
         },
         "ru" : {

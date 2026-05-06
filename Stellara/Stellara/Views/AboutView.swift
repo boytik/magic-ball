@@ -16,6 +16,7 @@ struct AboutView: View {
     @EnvironmentObject private var profileStore: UserProfileStore
     @EnvironmentObject private var music: MusicPlayer
     @EnvironmentObject private var notifications: NotificationManager
+    @EnvironmentObject private var localization: LocalizationManager
     @Environment(\.requestReview) private var requestReview
     @Environment(\.openURL) private var openURL
 
@@ -38,6 +39,8 @@ struct AboutView: View {
                     profileCard
 
                     preferencesCard
+
+                    languageCard
 
                     notificationsCard
 
@@ -200,6 +203,69 @@ struct AboutView: View {
                     }
                 )
             )
+        }
+    }
+
+    // MARK: - Language
+
+    private var languageCard: some View {
+        SettingsCard(title: "about.section.language") {
+            HStack(spacing: 14) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 9, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: [Color(red: 0.40, green: 0.65, blue: 0.95),
+                                         Color(red: 0.55, green: 0.45, blue: 0.95)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: 32, height: 32)
+                    Image(systemName: "globe")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(.white)
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("about.language.title")
+                        .foregroundStyle(.white)
+                    Text("about.language.subtitle")
+                        .font(.caption)
+                        .foregroundStyle(.white.opacity(0.55))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Spacer(minLength: 8)
+
+                Menu {
+                    ForEach(LocalizationManager.AppLanguage.allCases) { lang in
+                        Button {
+                            localization.set(lang)
+                        } label: {
+                            // Пометить выбранный галочкой — Menu сам нарисует.
+                            if lang == localization.current {
+                                Label("\(lang.flag)  \(lang.nativeName)", systemImage: "checkmark")
+                            } else {
+                                Text("\(lang.flag)  \(lang.nativeName)")
+                            }
+                        }
+                    }
+                } label: {
+                    HStack(spacing: 6) {
+                        Text("\(localization.current.flag)  \(localization.current.nativeName)")
+                            .font(.callout.weight(.medium))
+                            .foregroundStyle(.white)
+                        Image(systemName: "chevron.up.chevron.down")
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(.white.opacity(0.5))
+                    }
+                    .padding(.horizontal, 12).padding(.vertical, 8)
+                    .background(Color.white.opacity(0.08), in: Capsule())
+                    .overlay(Capsule().stroke(.white.opacity(0.12), lineWidth: 1))
+                }
+            }
+            .padding(.horizontal, 14).padding(.vertical, 10)
         }
     }
 
@@ -602,4 +668,5 @@ private struct InfoSheetView: View {
         .environmentObject(UserProfileStore())
         .environmentObject(MusicPlayer())
         .environmentObject(NotificationManager())
+        .environmentObject(LocalizationManager.shared)
 }

@@ -1,13 +1,17 @@
 import SwiftUI
 
 /// Корневой view. Flow:
-///   OnboardingView (только при первом запуске) → LoadingView → MainTabs.
+///   OnboardingView (только при первом запуске) → LoadingView →
+///   NotificationPermissionView (один раз) → MainTabs.
 ///
 /// Когда подключим Adapty Onboardings, сюда добавится третья ветка:
 /// сначала пробуем показать AdaptyOnboarding, если он недоступен —
 /// fall back на нативный `OnboardingView`.
 struct RootView: View {
     @AppStorage("stellara.didFinishOnboarding") private var didFinishOnboarding = false
+    /// Уже показывали ли мы пост-лоадинговый запрос на пуши.
+    /// Хранится в UserDefaults — спрашиваем строго один раз на установку.
+    @AppStorage("stellara.didAskForNotifications") private var didAskForNotifications = false
     @State private var didFinishLoading = false
 
     var body: some View {
@@ -18,6 +22,13 @@ struct RootView: View {
             } else if !didFinishLoading {
                 LoadingView {
                     withAnimation(.easeInOut(duration: 0.4)) { didFinishLoading = true }
+                }
+                .transition(.opacity)
+            } else if !didAskForNotifications {
+                NotificationPermissionView {
+                    withAnimation(.easeInOut(duration: 0.4)) {
+                        didAskForNotifications = true
+                    }
                 }
                 .transition(.opacity)
             } else {
