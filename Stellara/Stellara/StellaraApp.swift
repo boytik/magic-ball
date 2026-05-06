@@ -26,6 +26,7 @@ struct StellaraApp: App {
                 .environmentObject(music)
                 .environmentObject(notifications)
                 .environmentObject(localization)
+                .environmentObject(appDelegate)
                 .environment(\.locale, localization.locale)
                 .id(localization.current)
         }

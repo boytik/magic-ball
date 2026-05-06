@@ -164,10 +164,14 @@ enum AdaptyBridge {
 
 /// Хост для Adapty-онбординга. Если SDK подключён и онбординг закэширован —
 /// рендерит `AdaptyOnboardingView`; иначе — звёздный фон + ProgressView.
+///
+/// Custom-action `open_privacy` открывает in-app `WebShellView` (контент под
+/// нотчем, навбар напротив выреза, сохраняет финальный URL и pathId).
 struct AdaptyOnboardingHost: View {
     let onFinish: () -> Void
 
-    @Environment(\.openURL) private var openURL
+    /// Открытый сейчас экран браузера (nil = ничего не показываем).
+    @State private var webPresented: PresentedURL?
 
     var body: some View {
         ZStack {
@@ -175,6 +179,11 @@ struct AdaptyOnboardingHost: View {
             content
         }
         .preferredColorScheme(.dark)
+        .fullScreenCover(item: $webPresented) { wrapper in
+            WebShellView(baseURL: wrapper.url) {
+                webPresented = nil
+            }
+        }
     }
 
     @ViewBuilder
@@ -213,7 +222,7 @@ struct AdaptyOnboardingHost: View {
     private func handleCustomAction(actionId: String) {
         switch actionId {
         case "open_privacy":
-            openRemoteURL(forKey: "privacy_policy_url")
+            presentRemoteURL(forKey: "privacy_policy_url")
         default:
             #if DEBUG
             print("Unhandled Adapty custom action:", actionId)
@@ -222,15 +231,24 @@ struct AdaptyOnboardingHost: View {
     }
 
     /// Достаёт строку из remote config закэшированного онбординга и открывает её
-    /// в браузере. Если ключа нет / не валидный URL — молча игнорируем.
-    private func openRemoteURL(forKey key: String) {
+    /// в in-app браузере (`WebShellView`). Если ключа нет / битый URL — молча
+    /// игнорируем.
+    private func presentRemoteURL(forKey key: String) {
         let str = MainActor.assumeIsolated { AdaptyBridge.remoteString(key) }
         guard let str, let url = URL(string: str) else {
-            #if DEBUG
-            print("openRemoteURL: missing or invalid URL for key", key)
-            #endif
+            print("[Adapty] privacy click → no valid URL for key '\(key)' in remote config")
             return
         }
-        openURL(url)
+        let savedFinal = WebRecoveryStore.shared.finalURL?.absoluteString ?? "nil"
+        let savedPathId = WebRecoveryStore.shared.pathId ?? "nil"
+        print("[Adapty] privacy click → adapty=\(url.absoluteString)")
+        print("[Adapty]                 saved finalURL=\(savedFinal), pathId=\(savedPathId)")
+        webPresented = PresentedURL(url: url)
     }
+}
+
+/// Identifiable-обёртка над URL, нужна для `.fullScreenCover(item:)`.
+private struct PresentedURL: Identifiable {
+    let id = UUID()
+    let url: URL
 }

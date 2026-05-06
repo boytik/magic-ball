@@ -1,14 +1,50 @@
 import UIKit
+import Combine
 import UserNotifications
 import FirebaseCore
 import FirebaseMessaging
 
 /// Remote notifications (FCM): mirrors PocketInventory / Downshep setup —
 /// manual APNs token handoff, topic `all`, foreground presentation.
+///
+/// Также служит «гейтом» для разрешённых ориентаций: по дефолту весь
+/// app — портрет, но `WebShellView` на время своего показа просит .all,
+/// чтобы in-app браузер мог поворачиваться. Возвращает обратно в .portrait
+/// в `onDisappear`.
 final class StellaraAppDelegate: NSObject,
     UIApplicationDelegate,
     UNUserNotificationCenterDelegate,
-    MessagingDelegate {
+    MessagingDelegate,
+    ObservableObject {
+
+    /// Разрешённые ориентации. Меняй из view-кода через
+    /// `permitOrientations(...)`, не трогай напрямую.
+    var supportedOrientations: UIInterfaceOrientationMask = .portrait
+
+    func application(
+        _ application: UIApplication,
+        supportedInterfaceOrientationsFor window: UIWindow?
+    ) -> UIInterfaceOrientationMask {
+        supportedOrientations
+    }
+
+    /// Отметить, какие ориентации сейчас разрешены. Дополнительно «дёргаем»
+    /// систему, чтобы она пересмотрела текущую ориентацию (важно при
+    /// возврате в портретный режим — иначе экран остаётся в ландшафте).
+    func permitOrientations(_ mask: UIInterfaceOrientationMask) {
+        supportedOrientations = mask
+        if #available(iOS 16.0, *) {
+            DispatchQueue.main.async {
+                let scenes = UIApplication.shared.connectedScenes
+                for case let scene as UIWindowScene in scenes {
+                    scene.requestGeometryUpdate(.iOS(interfaceOrientations: mask)) { _ in }
+                }
+                UIViewController.attemptRotationToDeviceOrientation()
+            }
+        } else {
+            UIViewController.attemptRotationToDeviceOrientation()
+        }
+    }
 
     func application(
         _ application: UIApplication,

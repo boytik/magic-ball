@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E7CD3C22FA9F8FA00CED0CE /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3C12FA9F8FA00CED0CE /* FirebaseCore */; };
 		3E7CD3A82FA9F8FA00CED0CE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3A72FA9F8FA00CED0CE /* FirebaseMessaging */; };
 		3E7CD3B62FAA031800CED0CE /* Adapty in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3B52FAA031800CED0CE /* Adapty */; };
 		3E7CD3B82FAA031800CED0CE /* AdaptyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3B72FAA031800CED0CE /* AdaptyUI */; };
+		3E7CD3C22FA9F8FA00CED0CE /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7CD3C12FA9F8FA00CED0CE /* FirebaseCore */; };
 		3ED511872FA92222002772F7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3ED511862FA92222002772F7 /* Lottie */; };
 /* End PBXBuildFile section */
 
@@ -422,11 +422,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3E7CD3C12FA9F8FA00CED0CE /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3E7CD3A62FA9F8FA00CED0CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
 		3E7CD3A72FA9F8FA00CED0CE /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3E7CD3A62FA9F8FA00CED0CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -441,6 +436,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3E7CD3B42FAA031800CED0CE /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */;
 			productName = AdaptyUI;
+		};
+		3E7CD3C12FA9F8FA00CED0CE /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E7CD3A62FA9F8FA00CED0CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
 		};
 		3ED511862FA92222002772F7 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
