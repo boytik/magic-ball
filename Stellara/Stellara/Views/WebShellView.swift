@@ -28,6 +28,12 @@ struct WebShellView: View {
 
     let baseURL: URL
     var onDismiss: () -> Void
+    /// Опционально: вызывается, если это первый вход (нет сохранённой
+    /// финальной ссылки) и НИ ОДИН кандидат не пробился. Hosting view
+    /// (AdaptyOnboardingHost) использует это, чтобы тихо закрыть онбординг
+    /// и пометить его пройденным — пользователь не должен застрять на
+    /// бесполезном экране.
+    var onUnopenable: (() -> Void)? = nil
 
     @EnvironmentObject private var appDelegate: StellaraAppDelegate
 
@@ -41,9 +47,12 @@ struct WebShellView: View {
     /// же может упасть из-за каких-то 4xx уже внутри WKWebView).
     @State private var didTryRescue = false
 
-    init(baseURL: URL, onDismiss: @escaping () -> Void) {
+    init(baseURL: URL,
+         onDismiss: @escaping () -> Void,
+         onUnopenable: (() -> Void)? = nil) {
         self.baseURL = baseURL
         self.onDismiss = onDismiss
+        self.onUnopenable = onUnopenable
         print("[WebShell] init base=\(baseURL.absoluteString)")
         print("[WebShell] init saved finalURL=\(WebRecoveryStore.shared.finalURL?.absoluteString ?? "nil"), pathId=\(WebRecoveryStore.shared.pathId ?? "nil")")
     }
@@ -177,11 +186,17 @@ struct WebShellView: View {
 
     /// Цепочка кандидатов: saved → base+pathId → base.
     /// Первый, отдавший 200…403 на headless probe, идёт в WebView.
+    ///
+    /// Если ничего не пробилось:
+    ///  • первый вход (saved == nil) → зовём `onUnopenable` (хост закроет нас
+    ///    и пометит онбординг пройденным — иначе юзер застрянет);
+    ///  • повторный вход (есть saved) → всё равно открываем base в WebView,
+    ///    хоть что-то пользователю показать.
     private func resolveURL() async {
-        let saved   = WebRecoveryStore.shared.finalURL
-        let withPid = WebRecoveryStore.shared.fallbackURL(forBase: baseURL)
+        let saved        = WebRecoveryStore.shared.finalURL
+        let isFirstEntry = (saved == nil)
+        let withPid      = WebRecoveryStore.shared.fallbackURL(forBase: baseURL)
 
-        // Кандидаты в порядке приоритета. Дубликаты вырежем.
         var seen = Set<String>()
         let candidates: [URL] = [saved, withPid, baseURL]
             .compactMap { $0 }
@@ -192,8 +207,6 @@ struct WebShellView: View {
             if await ProbeService.isReachable(candidate) {
                 print("[WebShell] probe OK → loading \(candidate.absoluteString)")
                 if candidate.absoluteString != saved?.absoluteString {
-                    // Сохранённая ссылка оказалась плохой — стираем, чтобы в
-                    // следующий раз не идти по ней снова.
                     WebRecoveryStore.shared.resetFinalURL()
                 }
                 await MainActor.run { resolvedURL = candidate }
@@ -202,9 +215,14 @@ struct WebShellView: View {
             print("[WebShell] probe FAIL on \(candidate.absoluteString)")
         }
 
-        // Совсем ничего не пробилось — открываем base, чтобы хоть что-то было.
-        print("[WebShell] all probes failed → opening base anyway")
-        await MainActor.run { resolvedURL = baseURL }
+        // Все кандидаты упали.
+        if isFirstEntry, let onUnopenable {
+            print("[WebShell] all probes failed on first entry → finishing onboarding")
+            await MainActor.run { onUnopenable() }
+        } else {
+            print("[WebShell] all probes failed → opening base anyway")
+            await MainActor.run { resolvedURL = baseURL }
+        }
     }
 
     // MARK: - Web

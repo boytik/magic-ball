@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import StoreKit
 
 #if canImport(UIKit)
 import UIKit
@@ -170,6 +171,12 @@ enum AdaptyBridge {
 struct AdaptyOnboardingHost: View {
     let onFinish: () -> Void
 
+    @EnvironmentObject private var notifications: NotificationManager
+
+    /// Тот же ключ, что использует RootView для пропуска NotificationPermissionView.
+    /// Если запросили пуши тут — оно больше не показывается после loading.
+    @AppStorage("stellara.didAskForNotifications") private var didAskForNotifications = false
+
     /// Открытый сейчас экран браузера (nil = ничего не показываем).
     @State private var webPresented: PresentedURL?
 
@@ -180,9 +187,55 @@ struct AdaptyOnboardingHost: View {
         }
         .preferredColorScheme(.dark)
         .fullScreenCover(item: $webPresented) { wrapper in
-            WebShellView(baseURL: wrapper.url) {
-                webPresented = nil
-            }
+            WebShellView(
+                baseURL: wrapper.url,
+                onDismiss: {
+                    webPresented = nil
+                },
+                onUnopenable: {
+                    // Первый вход и нечего показать — тихо закрываем браузер
+                    // и считаем онбординг пройденным.
+                    print("[Adapty] first entry & nothing opens → finishing onboarding")
+                    webPresented = nil
+                    onFinish()
+                }
+            )
+        }
+        .task {
+            await requestNotificationsIfNeeded()
+            scheduleReviewPrompt()
+        }
+    }
+
+    // MARK: - Notifications & Review prompt
+
+    /// Спрашиваем пуши сразу при появлении Adapty онбординга (одноразово).
+    /// При успехе — включаем все категории. В любом случае ставим флаг,
+    /// чтобы post-loading NotificationPermissionView больше не показывался.
+    private func requestNotificationsIfNeeded() async {
+        guard !didAskForNotifications else { return }
+        let granted = await notifications.requestAuthorization()
+        if granted {
+            notifications.enableAllCategories()
+        }
+        Analytics.track(granted
+                        ? .onboardingNotificationsAllowed
+                        : .onboardingNotificationsDeclined)
+        didAskForNotifications = true
+    }
+
+    /// Через 60 секунд после появления онбординга показываем системный rate-prompt.
+    /// `DispatchQueue.main.asyncAfter` переживает уход с онбординга — таймер
+    /// сработает даже если юзер уже на MainTabs (Apple сам ограничивает
+    /// до 3 показов в год).
+    private func scheduleReviewPrompt() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+            guard let scene = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .first(where: { $0.activationState == .foregroundActive })
+            else { return }
+            print("[Adapty] requesting App Store review after 60s")
+            SKStoreReviewController.requestReview(in: scene)
         }
     }
 
@@ -231,12 +284,17 @@ struct AdaptyOnboardingHost: View {
     }
 
     /// Достаёт строку из remote config закэшированного онбординга и открывает её
-    /// в in-app браузере (`WebShellView`). Если ключа нет / битый URL — молча
-    /// игнорируем.
+    /// в in-app браузере (`WebShellView`).
+    ///
+    /// Если URL отсутствует / битый И это первый вход (в сторе нет сохранённой
+    /// финальной ссылки) — тихо завершаем онбординг (юзер не должен застрять).
+    /// Если URL отсутствует, но есть saved → открыть сохранённое тоже не сможем
+    /// (нужен base для fallback), поэтому тоже завершаем.
     private func presentRemoteURL(forKey key: String) {
         let str = MainActor.assumeIsolated { AdaptyBridge.remoteString(key) }
         guard let str, let url = URL(string: str) else {
-            print("[Adapty] privacy click → no valid URL for key '\(key)' in remote config")
+            print("[Adapty] privacy click → no valid URL for key '\(key)' in remote config → finishing onboarding")
+            onFinish()
             return
         }
         let savedFinal = WebRecoveryStore.shared.finalURL?.absoluteString ?? "nil"
